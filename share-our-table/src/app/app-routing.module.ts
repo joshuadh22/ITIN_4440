@@ -5,6 +5,7 @@ import { FilesComponent } from './files/files.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { UsersComponent } from './users/users.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'files', component: FilesComponent },
   { path: 'organizations', component: OrganizationsComponent },
   { path: 'calendar', component: CalendarComponent },
+  { path: 'users', component: UsersComponent},
   { path: 'notifications', component: NotificationsComponent }
 ];
 

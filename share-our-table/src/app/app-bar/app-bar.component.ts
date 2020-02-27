@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-bar.component.scss']
 })
 export class AppBarComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

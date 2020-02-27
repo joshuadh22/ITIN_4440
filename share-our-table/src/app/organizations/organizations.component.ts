@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ORGANIZATIONS } from '../mock-organizations';
 
 @Component({
   selector: 'app-organizations',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./organizations.component.scss']
 })
 export class OrganizationsComponent implements OnInit {
-
+  organizations = ORGANIZATIONS;
+  
   constructor() { }
 
   ngOnInit(): void {

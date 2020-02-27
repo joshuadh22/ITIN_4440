@@ -10,6 +10,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +19,9 @@ import { FilesComponent } from './files/files.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { UsersComponent } from './users/users.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
     OrganizationsComponent,
     CalendarComponent,
     NotificationsComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,11 @@ import { NotificationsComponent } from './notifications/notifications.component'
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
+    MatGridListModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

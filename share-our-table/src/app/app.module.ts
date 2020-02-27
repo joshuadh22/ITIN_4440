@@ -4,17 +4,41 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppBarComponent } from './app-bar/app-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { HomeComponent } from './home/home.component';
+import { FilesComponent } from './files/files.component';
+import { OrganizationsComponent } from './organizations/organizations.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppBarComponent,
+    SideNavigationComponent,
+    HomeComponent,
+    FilesComponent,
+    OrganizationsComponent,
+    CalendarComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "share-our-table"
+  "defaultProject": "share-our-table",
+  "cli": {
+    "analytics": false
+  }
 }

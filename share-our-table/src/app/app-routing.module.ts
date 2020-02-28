@@ -7,6 +7,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
 
+import { OrganizationComponent } from './organizations/organization/organization.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'organizations', component: OrganizationsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'users', component: UsersComponent},
-  { path: 'notifications', component: NotificationsComponent }
+  { path: 'notifications', component: NotificationsComponent },
+
+  { path: 'organization', component: OrganizationComponent}
 ];
 
 @NgModule({

@@ -22,6 +22,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { OrganizationComponent } from './organizations/organization/organization.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
@@ -39,6 +40,7 @@ import { config } from '../environments/environment';
     CalendarComponent,
     NotificationsComponent,
     UsersComponent,
+    OrganizationComponent,
   ],
   imports: [
     BrowserModule,

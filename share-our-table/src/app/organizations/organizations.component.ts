@@ -13,5 +13,4 @@ export class OrganizationsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

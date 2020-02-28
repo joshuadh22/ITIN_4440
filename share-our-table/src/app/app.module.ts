@@ -24,8 +24,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { config } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -53,11 +54,11 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatFormFieldModule,
     LayoutModule,
-    AngularFireModule.initializeApp(environment),
- 	  AngularFirestoreModule,
+    AngularFireModule.initializeApp(config.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [{provide: FirestoreSettingsToken, useValue: {}}],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
-

@@ -22,6 +22,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { OrganizationComponent } from './organizations/organization/organization.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CalendarComponent,
     NotificationsComponent,
     UsersComponent,
+    OrganizationComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,9 @@ import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { OrganizationComponent } from './organizations/organization/organization.component';
+import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-meetings.component';
+import { FeedComponent } from './home/feed/feed.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { OrganizationComponent } from './organizations/organization/organization
     NotificationsComponent,
     UsersComponent,
     OrganizationComponent,
+    UpcomingMeetingsComponent,
+    FeedComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,7 @@ import { OrganizationComponent } from './organizations/organization/organization
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDividerModule,
     LayoutModule,
   ],
   providers: [],

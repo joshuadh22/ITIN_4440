@@ -4,14 +4,16 @@
     justify-content: center;
 }
 
-#feedPadding {
-    padding-left:200px; 
-    padding-right:200px;
+#filler {
+    width: 5%;
 }
 
-@media only screen and (max-width: 1300px) {
-    #feedPadding {
-        padding-left:40px; 
-        padding-right:40px;
-    }
+#feed {
+    padding-left:5%; 
+    padding-right:5%;
+    width: 65%;
+}
+
+#meetings {
+    width: 30%;
 }

@@ -8,3 +8,10 @@
     padding-left:200px; 
     padding-right:200px;
 }
+
+@media only screen and (max-width: 1300px) {
+    #feedPadding {
+        padding-left:40px; 
+        padding-right:40px;
+    }
+}

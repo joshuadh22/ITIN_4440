@@ -2,7 +2,7 @@
   <div>
     <h2>Upcoming Meetings</h2>
     <div *ngFor="let meeting of meetings">
-      <a href="#">{{meeting.name}}</a>
+      <a href="#" routerLink="#">{{meeting.name}}</a>
       <div class="flex">
         <mat-icon class="icons">calendar_today</mat-icon>
         <h5>{{meeting.date}} at {{meeting.time}}</h5>

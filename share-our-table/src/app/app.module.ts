@@ -26,6 +26,8 @@ import { OrganizationComponent } from './organizations/organization/organization
 import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-meetings.component';
 import { FeedComponent } from './home/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import {MatDividerModule} from '@angular/material/divider';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,

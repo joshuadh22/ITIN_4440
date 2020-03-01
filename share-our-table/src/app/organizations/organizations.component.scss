@@ -1,7 +1,6 @@
 .example-card {
-  max-width: 300px;
-  margin-left: 24px;
-  margin-top: 24px;
+  max-width: 250px;
+  margin: 24px;
 }
 
 .example-header-image {
@@ -35,6 +34,12 @@ mat-card-content {
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -14,12 +14,12 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'files', component: FilesComponent },
-  { path: 'organizations', component: OrganizationsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'users', component: UsersComponent},
   { path: 'notifications', component: NotificationsComponent },
 
-  { path: 'organization', component: OrganizationComponent}
+  { path: 'organizations', component: OrganizationsComponent },
+  { path: 'organizations/:name', component: OrganizationComponent}
 ];
 
 @NgModule({

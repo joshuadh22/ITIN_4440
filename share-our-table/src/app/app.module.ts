@@ -22,6 +22,12 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { OrganizationComponent } from './organizations/organization/organization.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { config } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CalendarComponent,
     NotificationsComponent,
     UsersComponent,
+    OrganizationComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +56,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
     LayoutModule,
+    AngularFireModule.initializeApp(config.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

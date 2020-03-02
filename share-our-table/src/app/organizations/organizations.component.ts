@@ -24,10 +24,5 @@ export class OrganizationsComponent
     this.organizations = this.orgCollection.valueChanges();
   }
 
-  addItem(org: Organization)
-  {
-    this.orgCollection.add(org);
-  }
-
   ngOnInit(): void { }
 }

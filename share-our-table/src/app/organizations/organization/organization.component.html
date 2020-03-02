@@ -1,10 +1,35 @@
 <div class="card">
     <mat-card class="example-card" *ngFor="let organization of organizations | async">
         <img mat-card-image src={{organization.image}}>
+        <div [hidden]="edit">
+          <button mat-icon-button style="float: right;">
+            <mat-icon (click)="edit = true">edit</mat-icon>
+          </button>
+        </div>
         <mat-card-content>
             <h2>{{organization.name}}</h2>
-            <a href="{{organization.link}}" target="_blank"><h3>{{organization.link}}</h3></a>
-            <h3>{{organization.description}}</h3>
+            <div [hidden]="edit">
+              <a href="{{organization.link}}" target="_blank"><h3>{{organization.link}}</h3></a>
+              <h3>{{organization.description}}</h3>
+            </div>
+
         </mat-card-content>
+
+        <form [hidden]="!edit">
+          <mat-form-field appearance="outline">
+            <mat-label>Link</mat-label>
+            <input matInput formControlName="link" value="{{organization.link}}" #link>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" value="{{organization.description}}" #description></textarea>
+          </mat-form-field>
+          <div>
+            <button type="reset" mat-button (click)="edit = false;">Cancel</button>
+            <button type="submit" mat-button (click)="edit = false; setOrg(link.value, description.value);">Save</button>
+          </div>
+        </form>
+
     </mat-card>
 </div>

@@ -22,6 +22,17 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { OrganizationComponent } from './organizations/organization/organization.component';
+import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-meetings.component';
+import { FeedComponent } from './home/feed/feed.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+<<<<<<< HEAD
+import { TreeComponent } from './files/tree/tree.component';
+import { MatTreeModule } from '@angular/material/tree';
+=======
+>>>>>>> 3ec7e7f63dfc32f00b8da8604ebdbd9b4a3d1bc2
+
 
 @NgModule({
   declarations: [
@@ -34,9 +45,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CalendarComponent,
     NotificationsComponent,
     UsersComponent,
+    OrganizationComponent,
+    UpcomingMeetingsComponent,
+    FeedComponent,
+<<<<<<< HEAD
+    TreeComponent,
+=======
+>>>>>>> 3ec7e7f63dfc32f00b8da8604ebdbd9b4a3d1bc2
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -48,7 +68,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDividerModule,
     LayoutModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

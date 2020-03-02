@@ -27,6 +27,8 @@ import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-mee
 import { FeedComponent } from './home/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TreeComponent } from './files/tree/tree.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     OrganizationComponent,
     UpcomingMeetingsComponent,
     FeedComponent,
+    TreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatDividerModule,
     LayoutModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

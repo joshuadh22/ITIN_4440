@@ -1,4 +1,4 @@
-<div class="searchContainer">
+<div>
   <form class="example-form">
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Search</mat-label>
@@ -7,9 +7,9 @@
     </mat-form-field>
   </form>
 </div>
-<div class="tiles">
+<div>
   <mat-card class="example-card" *ngFor="let organization of organizations">
-    <a href="#" routerLink="/organization">
+    <a href="#" [routerLink]="[organization.link]">
       <img mat-card-image src={{organization.image}}>
       <mat-card-content>
         <h2>{{organization.name}}</h2>

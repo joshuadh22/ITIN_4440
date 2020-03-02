@@ -1,15 +1,10 @@
 <div class="card">
-  <mat-card class="example-card">
-    <img mat-card-image src={{organizations[1].image}}>
-    <mat-card-content>
-      <button mat-icon-button style="float: right;">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <h2>{{organizations[1].name}}</h2>
-      <div style="margin-bottom: 12px;">
-        <a href="{{organizations[1].link}}">{{organizations[1].link}}</a>
-      </div>
-      <p>{{organizations[1].description}}</p>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="example-card" *ngFor="let organization of organizations | async">
+        <img mat-card-image src={{organization.image}}>
+        <mat-card-content>
+            <h2>{{organization.name}}</h2>
+            <a href="{{organization.link}}" target="_blank"><h3>{{organization.link}}</h3></a>
+            <h3>{{organization.description}}</h3>
+        </mat-card-content>
+    </mat-card>
 </div>

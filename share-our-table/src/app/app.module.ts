@@ -27,6 +27,11 @@ import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-mee
 import { FeedComponent } from './home/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { config } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,8 +62,11 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     MatDividerModule,
     LayoutModule,
+    AngularFireModule.initializeApp(config.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

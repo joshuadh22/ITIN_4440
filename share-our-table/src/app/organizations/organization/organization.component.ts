@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
@@ -32,6 +32,13 @@ export class OrganizationComponent implements OnInit
     this.organizations = this.orgCollection.valueChanges();
   }
 
-  ngOnInit(): void { }
+  edit: Boolean = false;
+
+  setOrg(link: string, description: string)
+  {
+    this.afs.doc<Organization>('organizations/' + this.orgName).update({link: link, description: description});
+  }
+
+  ngOnInit() { }
 
 }

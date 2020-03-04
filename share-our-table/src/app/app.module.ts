@@ -23,6 +23,13 @@ import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { OrganizationComponent } from './organizations/organization/organization.component';
+import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-meetings.component';
+import { FeedComponent } from './home/feed/feed.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TreeComponent } from './files/tree/tree.component';
+import { MatTreeModule } from '@angular/material/tree';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
@@ -41,9 +48,14 @@ import { config } from '../environments/environment';
     NotificationsComponent,
     UsersComponent,
     OrganizationComponent,
+    UpcomingMeetingsComponent,
+    FeedComponent,
+    TreeComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -55,10 +67,12 @@ import { config } from '../environments/environment';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDividerModule,
     LayoutModule,
     AngularFireModule.initializeApp(config.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
+    MatTreeModule,
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]

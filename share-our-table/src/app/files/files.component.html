@@ -1,1 +1,4 @@
-<p>files works!</p>
+<div class="example-card" *ngFor="let file of files | async">
+    <h1>{{file.title}}</h1>
+    <h2>{{file.description}}</h2>
+</div>

@@ -10,6 +10,7 @@
             <h2>{{organization.name}}</h2>
             <div [hidden]="edit">
               <a href="{{organization.link}}" target="_blank"><h3>{{organization.link}}</h3></a>
+              <h3>{{organization.contactInfo}}</h3>
               <h3>{{organization.description}}</h3>
             </div>
 
@@ -22,12 +23,17 @@
           </mat-form-field>
           <br>
           <mat-form-field appearance="outline">
+            <mat-label>Contact Information</mat-label>
+            <input matInput formControlName="link" value="{{organization.contactInfo}}" #contactInfo>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description" value="{{organization.description}}" #description></textarea>
           </mat-form-field>
           <div>
             <button type="reset" mat-button (click)="edit = false;">Cancel</button>
-            <button type="submit" mat-button (click)="edit = false; setOrg(link.value, description.value);">Save</button>
+            <button type="submit" mat-button (click)="edit = false; setOrg(link.value, contactInfo.value, description.value);">Save</button>
           </div>
         </form>
 

@@ -32,6 +32,4 @@ export class FilesComponent implements OnInit {
       this.animal = result;
     });
   }
-
-
 }

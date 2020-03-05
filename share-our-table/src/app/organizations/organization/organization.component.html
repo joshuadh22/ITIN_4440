@@ -1,32 +1,41 @@
 <div class="card">
-  <mat-card class="example-card">
-    <img mat-card-image src={{organizations[1].image}}>
-    <mat-card-content>
-      <button mat-icon-button style="float: right;">
-        <mat-icon (click)="editOrganization(organizations[1])">edit</mat-icon>
-      </button>
-      <h2>{{organizations[1].name}}</h2>
-      <div style="margin-bottom: 12px;">
-        <a *ngIf="!organization" href="{{organizations[1].link}}">{{organizations[1].link}}</a>
-      </div>
-      <div *ngIf="organization">
-        <form [formGroup]=organization>
+    <mat-card class="example-card" *ngFor="let organization of organizations | async">
+        <img mat-card-image src={{organization.image}}>
+        <div [hidden]="edit">
+          <button mat-icon-button style="float: right;">
+            <mat-icon (click)="edit = true">edit</mat-icon>
+          </button>
+        </div>
+        <mat-card-content>
+            <h2>{{organization.name}}</h2>
+            <div [hidden]="edit">
+              <a href="{{organization.link}}" target="_blank"><h3>{{organization.link}}</h3></a>
+              <h3>{{organization.contactInfo}}</h3>
+              <h3>{{organization.description}}</h3>
+            </div>
+
+        </mat-card-content>
+
+        <form [hidden]="!edit">
           <mat-form-field appearance="outline">
             <mat-label>Link</mat-label>
-            <input matInput formControlName="link">
+            <input matInput formControlName="link" value="{{organization.link}}" #link>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label>Contact Information</mat-label>
+            <input matInput formControlName="link" value="{{organization.contactInfo}}" #contactInfo>
           </mat-form-field>
           <br>
           <mat-form-field appearance="outline">
             <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description"></textarea>
+            <textarea matInput formControlName="description" value="{{organization.description}}" #description></textarea>
           </mat-form-field>
           <div>
-            <button type="reset" mat-button (click)="cancel()">Cancel</button>
-            <button type="submit" mat-button (click)="save()">Save</button>
+            <button type="reset" mat-button (click)="edit = false;">Cancel</button>
+            <button type="submit" mat-button (click)="edit = false; setOrg(link.value, contactInfo.value, description.value);">Save</button>
           </div>
         </form>
-      </div>
-      <p *ngIf="!organization">{{organizations[1].description}}</p>
-    </mat-card-content>
-  </mat-card>
+
+    </mat-card>
 </div>

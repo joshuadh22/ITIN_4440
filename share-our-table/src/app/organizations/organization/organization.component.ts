@@ -1,38 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { ORGANIZATIONS } from '../../mock-organizations';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Organization } from 'src/app/organization';
+import { ActivatedRoute } from '@angular/router';
+
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import 'firebase/firestore';
+
+import { Organization } from '../../organization';
 
 @Component({
   selector: 'app-organization',
   templateUrl: './organization.component.html',
   styleUrls: ['./organization.component.scss']
 })
-export class OrganizationComponent implements OnInit {
-  showEdit:boolean = false;
-  organizations = ORGANIZATIONS;
-  organization: FormGroup;
 
-  editOrganization(organization: Organization) {
-    this.organization = new FormGroup({
-      name: new FormControl(organization.name),
-      description: new FormControl(organization.description),
-      link: new FormControl(organization.link)
-    });
+export class OrganizationComponent implements OnInit
+{
+  private orgCollection: AngularFirestoreCollection<Organization>;
+  organizations: Observable<Organization[]>;
+
+  orgName: string;
+  setOrgName(newOrgName: string)
+  {
+    this.orgName = newOrgName;
   }
 
-  save() {
-    let index = this.organizations.findIndex(organization => organization.id === this.organization.value.id);
-    this.organizations[index] = this.organization.value;
-    this.organization = null;
+  constructor(private route: ActivatedRoute, private afs: AngularFirestore)
+  {
+    this.route.params.subscribe(params => this.setOrgName(params.name));
+
+    this.orgCollection = afs.collection<Organization>('organizations', ref => ref.where('name', '==', this.orgName));
+    this.organizations = this.orgCollection.valueChanges();
   }
 
-  cancel() {
-    this.organization = null;
-  }
-  constructor() { }
+  edit: Boolean = false;
 
-  ngOnInit(): void {
+  setOrg(link: string, contactInfo: string, description: string)
+  {
+    this.afs.doc<Organization>('organizations/' + this.orgName).update({link: link, contactInfo: contactInfo, description: description});
   }
+
+  ngOnInit() { }
 
 }

@@ -36,6 +36,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { config } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,12 +76,15 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatFormFieldModule,
     MatDividerModule,
     LayoutModule,
+    AngularFireModule.initializeApp(config.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
     MatTreeModule,
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

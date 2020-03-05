@@ -37,6 +37,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -61,6 +62,7 @@ import { HomeComponent } from './home/home.component';
     PrivateTreeComponent,
     DialogComponent,
     HomeComponent
+    TreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +89,7 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
+
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]

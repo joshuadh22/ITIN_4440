@@ -17,6 +17,8 @@ import 'firebase/firestore';
 })
 export class FilesComponent implements OnInit {
 
+  animal: string;
+  name: string;
 
   private fileCollection: AngularFirestoreCollection<File>;
   files: Observable<File[]>;

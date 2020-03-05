@@ -36,8 +36,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -61,8 +59,7 @@ import { HomeComponent } from './home/home.component';
     PublicTreeComponent,
     PrivateTreeComponent,
     DialogComponent,
-    HomeComponent
-    TreeComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { files } from '../public-tree/example-data';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog',
@@ -9,8 +10,25 @@ import { files } from '../public-tree/example-data';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  message:string;
+  action:string = "Dismiss";
+  fileUploaded = false;
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
+
+  save() {
+    if (this.fileUploaded === true)
+    {
+      this.message = 'File uploaded successfully!';
+    }
+    else
+    {
+      this.message = 'File upload failed. Please try again.'
+    }
+    this._snackBar.open(this.message, this.action, {
+      duration: 5000,
+    });
+  }
 
   ngOnInit(): void {
   }

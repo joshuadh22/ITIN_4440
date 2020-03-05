@@ -34,12 +34,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './files/dialog/dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { config } from '../environments/environment';
     PublicTreeComponent,
     PrivateTreeComponent,
     DialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import { config } from '../environments/environment';
     MatInputModule,
     MatFormFieldModule,
     MatDividerModule,
+    MatSnackBarModule,
     LayoutModule,
     AngularFireModule.initializeApp(config.firebase),
     AngularFireStorageModule,

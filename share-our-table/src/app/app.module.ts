@@ -14,7 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
-import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
 import { FilesComponent } from './files/files.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -23,25 +23,33 @@ import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { OrganizationComponent } from './organizations/organization/organization.component';
-import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-meetings.component';
-import { FeedComponent } from './home/feed/feed.component';
+import { UpcomingMeetingsComponent } from './posts/upcoming-meetings/upcoming-meetings.component';
+import { FeedComponent } from './posts/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { TreeComponent } from './files/tree/tree.component';
+import { PublicTreeComponent } from './files/public-tree/tree.component';
+import { PrivateTreeComponent } from './files/private-tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './files/dialog/dialog.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppBarComponent,
     SideNavigationComponent,
-    HomeComponent,
+    PostsComponent,
     FilesComponent,
     OrganizationsComponent,
     CalendarComponent,
@@ -50,6 +58,10 @@ import { config } from '../environments/environment';
     OrganizationComponent,
     UpcomingMeetingsComponent,
     FeedComponent,
+    PublicTreeComponent,
+    PrivateTreeComponent,
+    DialogComponent,
+    HomeComponent
     TreeComponent,
   ],
   imports: [
@@ -68,11 +80,16 @@ import { config } from '../environments/environment';
     MatInputModule,
     MatFormFieldModule,
     MatDividerModule,
+    MatSnackBarModule,
     LayoutModule,
     AngularFireModule.initializeApp(config.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
     MatTreeModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatTabsModule,
+
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]

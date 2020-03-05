@@ -3,15 +3,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
 
-import { TreeComponent } from './tree.component';
+import { PrivateTreeComponent } from './tree.component';
 
 describe('TreeComponent', () => {
-  let component: TreeComponent;
-  let fixture: ComponentFixture<TreeComponent>;
+  let component: PrivateTreeComponent;
+  let fixture: ComponentFixture<PrivateTreeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TreeComponent ],
+      declarations: [ PrivateTreeComponent ],
       imports: [
         MatButtonModule,
         MatIconModule,
@@ -21,7 +21,7 @@ describe('TreeComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TreeComponent);
+    fixture = TestBed.createComponent(PrivateTreeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

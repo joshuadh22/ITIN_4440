@@ -1,0 +1,38 @@
+
+.type-icon {
+  color: #757575;
+  margin-right: 5px;
+}
+
+mat-tree{
+  margin: 30px;
+  border: solid;
+  border-width: 0.5px;
+  border-color: lightgray;
+  width: 80vw;
+}
+
+mat-tree-node{
+  border: solid;
+  border-width: 0.25px;
+  border-color: lightgray;
+  padding-right: 10px;
+}
+
+table {
+  display: inline;
+  margin: 0 0 0 auto;
+}
+
+tr{
+  text-align: center;
+
+  .dataDate{
+    width: 100px;
+  }
+  .dataKind{
+    width: 100px;
+  }
+
+  
+}

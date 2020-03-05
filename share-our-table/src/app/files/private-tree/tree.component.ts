@@ -28,11 +28,11 @@ export interface FlatTreeNode {
 }
 
 @Component({
-  selector: 'app-tree',
+  selector: 'private-tree',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss']
 })
-export class TreeComponent {
+export class PrivateTreeComponent {
 
   /** The TreeControl controls the expand/collapse state of tree nodes.  */
   treeControl: FlatTreeControl<FlatTreeNode>;

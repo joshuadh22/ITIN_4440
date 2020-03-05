@@ -27,8 +27,13 @@ import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-mee
 import { FeedComponent } from './home/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { TreeComponent } from './files/tree/tree.component';
+import { PublicTreeComponent } from './files/public-tree/tree.component';
+import { PrivateTreeComponent } from './files/private-tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './files/dialog/dialog.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -45,7 +50,9 @@ import { MatTreeModule } from '@angular/material/tree';
     OrganizationComponent,
     UpcomingMeetingsComponent,
     FeedComponent,
-    TreeComponent,
+    PublicTreeComponent,
+    PrivateTreeComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +72,9 @@ import { MatTreeModule } from '@angular/material/tree';
     MatDividerModule,
     LayoutModule,
     MatTreeModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

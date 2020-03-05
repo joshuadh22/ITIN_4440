@@ -14,7 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
-import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
 import { FilesComponent } from './files/files.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -23,8 +23,8 @@ import { UsersComponent } from './users/users.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { OrganizationComponent } from './organizations/organization/organization.component';
-import { UpcomingMeetingsComponent } from './home/upcoming-meetings/upcoming-meetings.component';
-import { FeedComponent } from './home/feed/feed.component';
+import { UpcomingMeetingsComponent } from './posts/upcoming-meetings/upcoming-meetings.component';
+import { FeedComponent } from './posts/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PublicTreeComponent } from './files/public-tree/tree.component';
@@ -46,7 +46,7 @@ import { config } from '../environments/environment';
     AppComponent,
     AppBarComponent,
     SideNavigationComponent,
-    HomeComponent,
+    PostsComponent,
     FilesComponent,
     OrganizationsComponent,
     CalendarComponent,

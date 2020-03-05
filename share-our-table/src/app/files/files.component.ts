@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
-import { File } from '../file';
 
 @Component({
   selector: 'app-files',

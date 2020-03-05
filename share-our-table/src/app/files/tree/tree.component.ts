@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { files } from './example-data';
+
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import 'firebase/firestore';
 
 /** File node data with possible child nodes. */
 export interface FileNode {
@@ -43,7 +46,10 @@ export class TreeComponent {
   /** The MatTreeFlatDataSource connects the control and flattener to provide data. */
   dataSource: MatTreeFlatDataSource<FileNode, FlatTreeNode>;
 
-  constructor() {
+  private fileCollection: AngularFirestoreCollection<FileNode>;
+  privateFiles: Observable<FileNode[]>;
+
+  constructor(private afs: AngularFirestore) {
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
@@ -52,7 +58,9 @@ export class TreeComponent {
 
     this.treeControl = new FlatTreeControl(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-    this.dataSource.data = files;
+    
+    this.fileCollection = afs.collection<FileNode>('privateFiles');
+    this.privateFiles = this.fileCollection.valueChanges();
   }
 
   /** Transform the data to something the tree can read. */
@@ -75,16 +83,17 @@ export class TreeComponent {
 
   /** Get whether the node is expanded or not. */
   isExpandable(node: FlatTreeNode) {
-    return node.expandable;
+    return node.type == 'folder';
   }
 
   /** Get whether the node has children or not. */
   hasChild(index: number, node: FlatTreeNode) {
-    return node.expandable;
+    return node.type == 'folder';
   }
 
   /** Get the children for the node. */
   getChildren(node: FileNode): FileNode[] | null | undefined {
+    //this.afs.doc<FileNode>('privateFiles/'
     return node.children;
   }
 }

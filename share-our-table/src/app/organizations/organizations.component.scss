@@ -15,8 +15,11 @@ mat-card-content {
   height: 100px;
 }
 
+mat-grid-tile {
+  background: lightblue;
+}
 
-.searchContainer {
+div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

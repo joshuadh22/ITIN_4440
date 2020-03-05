@@ -34,9 +34,9 @@ export class OrganizationComponent implements OnInit
 
   edit: Boolean = false;
 
-  setOrg(link: string, description: string)
+  setOrg(link: string, contactInfo: string, description: string)
   {
-    this.afs.doc<Organization>('organizations/' + this.orgName).update({link: link, description: description});
+    this.afs.doc<Organization>('organizations/' + this.orgName).update({link: link, contactInfo: contactInfo, description: description});
   }
 
   ngOnInit() { }

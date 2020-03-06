@@ -5,11 +5,6 @@ import { DialogComponent } from './dialog/dialog.component';
 
 import { FormControl } from '@angular/forms';
 
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import 'firebase/firestore';
-
-
 @Component({
   selector: 'app-files',
   templateUrl: './files.component.html',
@@ -17,15 +12,10 @@ import 'firebase/firestore';
 })
 export class FilesComponent implements OnInit {
 
+  animal: string;
+  name: string;
 
-  private fileCollection: AngularFirestoreCollection<File>;
-  files: Observable<File[]>;
-
-  constructor(private afs: AngularFirestore, public dialog: MatDialog)
-  { 
-    this.fileCollection = afs.collection<File>('privateFiles');
-    this.files = this.fileCollection.valueChanges();
-  }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
   }

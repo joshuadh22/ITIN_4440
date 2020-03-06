@@ -42,6 +42,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 
+import 'firebase/storage';
+import { UploadDirective } from './upload.directive';
+import { UploadComponent } from './upload/upload.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +54,7 @@ import { HomeComponent } from './home/home.component';
     SideNavigationComponent,
     PostsComponent,
     FilesComponent,
+    UploadComponent,
     OrganizationsComponent,
     CalendarComponent,
     NotificationsComponent,
@@ -60,6 +66,7 @@ import { HomeComponent } from './home/home.component';
     PrivateTreeComponent,
     DialogComponent,
     HomeComponent,
+    UploadDirective
   ],
   imports: [
     BrowserModule,
@@ -86,8 +93,10 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
+    BrowserModule,
+    AngularFireStorageModule,
   ],
-  providers: [{provide: FirestoreSettingsToken, useValue: {}}],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

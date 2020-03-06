@@ -86,7 +86,6 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]

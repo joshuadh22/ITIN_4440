@@ -44,7 +44,7 @@ import { HomeComponent } from './home/home.component';
 
 import 'firebase/storage';
 import { UploadDirective } from './upload.directive';
-import { UploadComponent } from './upload/upload.component';
+import { UploadComponent } from './files/upload/upload.component';
 
 
 @NgModule({

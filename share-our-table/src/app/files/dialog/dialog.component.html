@@ -8,12 +8,19 @@
     </mat-select>
 </mat-form-field>
 
-<h2>File: </h2><input type="file">
+<form>
+    <h2>File: </h2>
+    <input class="file-input" type="file" (change)="onUpload($event.target.files)">
+</form>
 
 <h2>Description: </h2>
 
 <mat-form-field class="description" appearance="outline">
-  <textarea matInput placeholder="Enter message here..."></textarea>
+    <textarea matInput placeholder="Enter message here..."></textarea>
 </mat-form-field>
 
-<button class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close (click)="save()">Save</button>
+<button class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close >Save</button>
+
+<div *ngFor="let file of files">
+    <upload [file]="file"></upload>
+</div>

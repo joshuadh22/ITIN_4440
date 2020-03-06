@@ -10,27 +10,32 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  message:string;
-  action:string = "Dismiss";
+  message: string;
+  action: string = "Dismiss";
   fileUploaded = false;
+  files: File[] = [];
 
   constructor(private _snackBar: MatSnackBar) { }
 
+  ngOnInit(): void {
+  }
+
+  onUpload(files: FileList) {
+    for (let i = 0; i < files.length; i++) {
+      this.files.push(files.item(i));
+    }
+  }
+
   save() {
-    if (this.fileUploaded === true)
-    {
+    if (this.fileUploaded === true) {
       this.message = 'File uploaded successfully!';
     }
-    else
-    {
+    else {
       this.message = 'File upload failed. Please try again.'
     }
     this._snackBar.open(this.message, this.action, {
       duration: 5000,
     });
-  }
-
-  ngOnInit(): void {
   }
 
   file = files
@@ -50,7 +55,6 @@ export class DialogComponent implements OnInit {
     }
   ];
   selectedCountry: string = "GB";
-  
-  selectedCountryControl = new FormControl(this.selectedCountry);
 
+  selectedCountryControl = new FormControl(this.selectedCountry);
 }

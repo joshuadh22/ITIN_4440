@@ -1,12 +1,3 @@
-<div class="searchContainer">
-  <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Search</mat-label>
-      <input type="text" matInput>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </form>
-</div>
 <div>
   <mat-card class="example-card" *ngFor="let organization of organizations | async">
     <a href="#" routerLink="/organizations/{{organization.name}}">

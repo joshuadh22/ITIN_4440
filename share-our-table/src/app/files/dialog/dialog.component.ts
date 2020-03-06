@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { files } from '../public-tree/example-data';
+import { files } from '../private-tree/example-data';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

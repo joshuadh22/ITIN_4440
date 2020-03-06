@@ -7,7 +7,7 @@
     </mat-icon>
     {{node.name}}
     <table>
-      <tr><td class="dataSize">{{node.size}}</td><td class="dataKind">{{node.kind}}</td><td class="dataDate">{{node.date}}</td></tr>
+      <tr><td class="dataSize">{{node.size}}</td><td class="dataKind">{{node.kind}}</td><td class="dataDate">{{node.date}}</td><td><button mat-icon-button><mat-icon [attr.aria-label]="node.type + 'icon'">{{ node.type ==='file' ? 'comment' : '' }}</mat-icon></button></td><td><button mat-icon-button><mat-icon [attr.aria-label]="node.type + 'icon'">{{ node.type ==='file' ? 'get_app' : '' }}</mat-icon></button></td></tr>
     </table>  
   </mat-tree-node>
 

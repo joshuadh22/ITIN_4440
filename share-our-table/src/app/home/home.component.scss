@@ -1,19 +1,31 @@
-.jumbotron { 
-    padding: 30px; /* fills out the jumbotron */
-  }
-  
-  .container {
-    margin: 0 auto;  /* centers the container */
-    padding: 0 15px; /* adds some padding to the left and right*/
+.header-background {
+    overflow: hidden;
+    display: block;
+    background: #3F51B5;
+}
+
+.header-section {
     text-align: center;
-  }
-  
-  .jumbotron .container { 
-    max-width: 100%; /* allows the jumbotron to adjust on smaller widths */
-  }
-  
-  .jumbotron h1 { 
-    text-align: center; /* centers the heading */
-    font-weight: 600;
-    text-transform: uppercase;
-  }
+    padding-top: 60px;
+    display: block;
+}
+
+.header-headline {
+    color: white;
+    display: block;
+}
+
+.header-button {
+    text-align: center;
+    margin: 60px 0;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 56px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 300;
+}

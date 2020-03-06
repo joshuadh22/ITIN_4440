@@ -1,3 +1,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+mat-toolbar mat-toolbar-row {
+  z-index: 2;
+}

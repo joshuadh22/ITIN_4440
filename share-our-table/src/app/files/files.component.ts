@@ -10,10 +10,10 @@ import { FormControl } from '@angular/forms';
   templateUrl: './files.component.html',
   styleUrls: ['./files.component.scss']
 })
+
 export class FilesComponent implements OnInit {
 
-  animal: string;
-  name: string;
+
 
   constructor(public dialog: MatDialog) {}
 
@@ -23,13 +23,9 @@ export class FilesComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogComponent, {
       width: '50vw',
-      height: '33vw',
-      data: { name: this.name, animal: this.animal }
+      height: '38vw',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
+
   }
 }

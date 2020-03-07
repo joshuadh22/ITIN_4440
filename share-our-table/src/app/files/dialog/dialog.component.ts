@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { files } from '../private-tree/example-data';
+import { files } from '../public-tree/example-data';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
+
 export class DialogComponent implements OnInit {
   message:string;
   action:string = "Dismiss";
@@ -49,6 +50,7 @@ export class DialogComponent implements OnInit {
       short: "CA"
     }
   ];
+  
   selectedCountry: string = "GB";
   
   selectedCountryControl = new FormControl(this.selectedCountry);

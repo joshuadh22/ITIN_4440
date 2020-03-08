@@ -6,7 +6,7 @@
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
     </form>
-    <button class="uploadButton" (click)="openDialog()" style="float: right;" mat-raised-button color="primary">+ Upload</button>
+    <button *ngIf = "user!='public'" class="uploadButton" (click)="openDialog()" style="float: right;" mat-raised-button color="primary">+ Upload</button>
     <button class="folderButton" style="float: right;" mat-raised-button color="white">+ Folder</button>
 </div>
 
@@ -14,7 +14,7 @@
   <mat-tab label="Public"> 
     <public-tree></public-tree> 
   </mat-tab>
-  <mat-tab label="Private">
+  <mat-tab *ngIf = "user=='exec'" label="Private">
     <private-tree></private-tree> 
   </mat-tab>
 </mat-tab-group>

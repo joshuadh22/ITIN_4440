@@ -21,6 +21,8 @@ export class FilesComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private storage: AngularFireStorage) { }
 
+  user: string = 'exec';
+
   ngOnInit(): void {
   }
 

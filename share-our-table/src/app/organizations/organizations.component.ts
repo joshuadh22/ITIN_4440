@@ -24,6 +24,8 @@ export class OrganizationsComponent
     this.organizations = this.orgCollection.valueChanges();
   }
 
+  user: string = 'exec';
+
   ngOnInit(): void { }
 }
 

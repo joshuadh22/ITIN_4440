@@ -9,5 +9,5 @@
   </mat-card>
 
   <!--We need this to link to a new Add an Organization Page with a fields for a new org-->
-  <button mat-mini-fab color="primary"><mat-icon> add </mat-icon> </button>
+  <button *ngIf = "user=='exec'" mat-mini-fab color="primary"><mat-icon> add </mat-icon> </button>
 </div>

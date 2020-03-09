@@ -33,6 +33,7 @@ export class OrganizationComponent implements OnInit
   }
 
   edit: Boolean = false;
+  user: String = 'exec';
 
   setOrg(link: string, contactInfo: string, description: string)
   {

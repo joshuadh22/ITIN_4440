@@ -1,11 +1,13 @@
 <div class="card">
     <mat-card class="example-card" *ngFor="let organization of organizations | async">
         <img mat-card-image src={{organization.image}}>
+
         <div [hidden]="edit">
           <button mat-icon-button style="float: right;">
             <mat-icon (click)="edit = true">edit</mat-icon>
           </button>
         </div>
+
         <mat-card-content>
             <h2>{{organization.name}}</h2>
             <div [hidden]="edit">

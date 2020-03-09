@@ -10,8 +10,7 @@
 
 <form>
     <h2>File: </h2>
-    <input class="file-input" type="file" (change)="onUpload($event.target.files)">
-    
+    <input class="file-input" type="file" (change)="setUpload($event.target.files)">
 
     <h2>Description: </h2>
 
@@ -19,10 +18,10 @@
         <textarea matInput placeholder="Enter message here..."></textarea>
     </mat-form-field>
 
-    <input value="Save" class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close>
+    <input (click)="save()" value="Save" class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close>
 </form>
 
 
-    <div *ngFor="let file of files">
-        <upload [file]="file"></upload>
-    </div>
+<div *ngFor="let file of files">
+    <upload [file]="file"></upload>
+</div>

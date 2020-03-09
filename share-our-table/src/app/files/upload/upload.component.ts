@@ -17,6 +17,7 @@ export class UploadComponent implements OnInit {
   percentage: Observable<number>;
   snapshot: Observable<any>;
   downloadURL;
+  uploadItem;
 
   constructor(private storage: AngularFireStorage, private db: AngularFirestore) { }
 
@@ -25,9 +26,14 @@ export class UploadComponent implements OnInit {
   }
 
   startUpload() {
-    const path = `test/${this.file.name}`;
+    const path = `test/${Date.now()}_${this.file.name}`;
     const ref = this.storage.ref(path);
-    this.task = this.storage.upload(path, this.file);
+    this.task = this.storage.upload(path, this.file, { 
+      customMetadata: { 
+        title: this.file.name,
+        description: "description"
+    }});
+
     this.percentage = this.task.percentageChanges();
     this.snapshot = this.task.snapshotChanges().pipe(
       tap(console.log),
@@ -36,22 +42,6 @@ export class UploadComponent implements OnInit {
         this.db.collection('files').add({ downloadURL: this.downloadURL, path });
       }),
     );
-
-    var uploadRef = this.storage.ref('test').child(this.file.name);
-    this.isUploaded(uploadRef);
-  }
-
-  isUploaded(ref) {
-    alert(ref)
-    var newMetadata = {
-      contentDisposition: 'this is the discription',
-    }
-
-    ref.updateMetadata(newMetadata).then(function (metadata) {
-      // Updated metadata for 'images/forest.jpg' is returned in the Promise
-    }).catch(function (error) {
-      // Uh-oh, an error occurred!
-    });
   }
 
   isActive(snapshot) {

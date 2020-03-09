@@ -14,20 +14,33 @@ export class DialogComponent implements OnInit {
   action: string = "Dismiss";
   fileUploaded = false;
   files: File[] = [];
+  selectedFiles :File[] = []  // A var to work around uploading when save is pressed
 
   constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
-  onUpload(files: FileList) {
-    for (let i = 0; i < files.length; i++) {
-      this.files.push(files.item(i));
+  /**
+   * Saves the selected files to a temparary variable when slected.
+   * @param files 
+   */
+  setUpload(filesIn: FileList) {
+    for (let i = 0; i < filesIn.length; i++) {
+      this.selectedFiles.push(filesIn.item(i));
     }
   }
 
+  /**
+   * Pushes the files selected to the database. 
+   */
   save() {
-    if (this.fileUploaded === true) {
+    if (this.selectedFiles != null) {
+      this.files = this.selectedFiles;
+      this.fileUploaded = true;
+    }
+
+    if (this.fileUploaded === true) {  
       this.message = 'File uploaded successfully!';
     }
     else {

@@ -15,13 +15,12 @@
     <h2>Description: </h2>
 
     <mat-form-field class="description" appearance="outline">
-        <textarea matInput placeholder="Enter message here..."></textarea>
-    </mat-form-field>
-
-    <input (click)="save()" value="Save" class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close>
+        <textarea ref-textarea [(ngModel)]="description" matInput placeholder="Enter message here..."></textarea>
+   </mat-form-field>
+   <input (click)="save(textarea.value)" value="Save" class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close>
 </form>
 
 
 <div *ngFor="let file of files">
-    <upload [file]="file"></upload>
+    <upload [file]="file" [description]="description"></upload>
 </div>

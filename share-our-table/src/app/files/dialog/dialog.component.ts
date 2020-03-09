@@ -14,8 +14,9 @@ export class DialogComponent implements OnInit {
   action: string = "Dismiss";
   fileUploaded = false;
   files: File[] = [];
-  selectedFiles :File[] = []  // A var to work around uploading when save is pressed
-
+  selectedFiles :File[] = []  // A work around to upload when save is pressed.
+  description: string = "defualt";
+ 
   constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -23,7 +24,8 @@ export class DialogComponent implements OnInit {
 
   /**
    * Saves the selected files to a temparary variable when slected.
-   * @param files 
+   * This is done to allow description metadata to be added before pushing to firebase storage.
+   * @param files - the files a user has selected form the dialog window.
    */
   setUpload(filesIn: FileList) {
     for (let i = 0; i < filesIn.length; i++) {
@@ -32,11 +34,13 @@ export class DialogComponent implements OnInit {
   }
 
   /**
-   * Pushes the files selected to the database. 
+   * Pushes the files the user selected to an array of files that 
+   * will be sent to an upload component. Additionally this method has some error messages.
    */
-  save() {
+  save(descriptionIn: string) {
     if (this.selectedFiles != null) {
       this.files = this.selectedFiles;
+      this.description = descriptionIn;
       this.fileUploaded = true;
     }
 

@@ -42,7 +42,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 
-import { PublicDialogTreeComponent } from './files/dialog/dialog-tree/tree.component';
+
+import { DirectoryData } from "./files/dialog/directory/directory.component";
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +65,7 @@ import { PublicDialogTreeComponent } from './files/dialog/dialog-tree/tree.compo
     PrivateTreeComponent,
     DialogComponent,
     HomeComponent,
-    PublicDialogTreeComponent,
+    DirectoryData,
   ],
   imports: [
     BrowserModule,
@@ -89,8 +92,9 @@ import { PublicDialogTreeComponent } from './files/dialog/dialog-tree/tree.compo
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
+    TreeViewModule,
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DirectoryData]
 })
 export class AppModule { }

@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
+import { of } from 'rxjs';
+
 @Component({
     selector: 'dirctory',
     template: `
+    <div>
+      Selected folder: {{selectedKeys.join(",")}}
+    </div>
     <kendo-treeview
         [nodes]="exmpleData"
         textField="name"
+        [hasChildren]="hasChildren"
+        [children]="fetchChildren"
         kendoTreeViewExpandable
+        [expandedKeys]="expandedKeys"
         kendoTreeViewSelectable
+        [selectBy]="'name'"
+        [(selectedKeys)]="selectedKeys"
         kendoTreeViewHierarchyBinding
         childrenField="children"
     >
@@ -14,6 +24,8 @@ import { Component } from '@angular/core';
   `
 })
 export class DirectoryData {
+  public expandedKeys: any[] = [''];
+  public selectedKeys: any[] = [''];
     public exmpleData: any[] = [
         {
     name: 'components',
@@ -35,10 +47,6 @@ export class DirectoryData {
             date: '11/21/2020',
             kind: 'folder',
             size: '--',
-            children: [
-              { name: 'package.json', type: 'file', date:'11/21/2020',kind: 'json', size: '2MB' },
-              { name: 'BUILD.bazel', type: 'file', date: '11/21/2020', kind: 'bazel', size: '2MB' },
-            ]
           },
           { name: 'material', type: 'folder', date: '11/21/2020', kind: 'folder', size: '--' }
         ]
@@ -58,12 +66,7 @@ export class DirectoryData {
         date: '11/21/2020',
         kind: 'folder',
         size: '--',
-        children: [
-          { name: '.travis.yml', type: 'file', date: '11/21/2020', kind: 'yml', size: '2MB' },
-          { name: 'firebase.json', type: 'file', date: '11/21/2020', kind: 'json', size: '2MB' }
-        ]
       },
-      { name: 'package.json', type: 'file', date: '11/21/2020', kind: 'json', size: '--' }
     ]
   },
   {
@@ -72,10 +75,8 @@ export class DirectoryData {
     date: '11/21/2020',
     kind: 'folder',
     size: '--',
-    children: [
-      { name: 'gulpfile.js', type: 'file', date: '11/21/2020', kind: 'js', size: '2MB' },
-      { name: 'README.md', type: 'file', date: '11/21/2020', kind: 'md', size: '2MB' }
-    ]
   }
     ];
+    public hasChildren = (item: any) => item.items && item.items.length > 0;
+    public fetchChildren = (item: any) => of(item.items);
 }

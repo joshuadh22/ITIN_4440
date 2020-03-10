@@ -3,10 +3,6 @@ import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree'
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { files } from './example-data';
 
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import 'firebase/firestore';
-
 /** File node data with possible child nodes. */
 export interface FileNode {
   name: string;
@@ -32,11 +28,11 @@ export interface FlatTreeNode {
 }
 
 @Component({
-  selector: 'private-tree',
+  selector: 'public-tree',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss']
 })
-export class PrivateTreeComponent {
+export class PublicTreeComponent {
 
   /** The TreeControl controls the expand/collapse state of tree nodes.  */
   treeControl: FlatTreeControl<FlatTreeNode>;
@@ -47,10 +43,7 @@ export class PrivateTreeComponent {
   /** The MatTreeFlatDataSource connects the control and flattener to provide data. */
   dataSource: MatTreeFlatDataSource<FileNode, FlatTreeNode>;
 
-  private fileCollection: AngularFirestoreCollection<FileNode>;
-  privateFiles: Observable<FileNode[]>;
-
-  constructor(private afs: AngularFirestore) {
+  constructor() {
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
@@ -59,9 +52,7 @@ export class PrivateTreeComponent {
 
     this.treeControl = new FlatTreeControl(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-    this.fileCollection = afs.collection<FileNode>('privateFiles');
-    this.privateFiles = this.fileCollection.valueChanges();
+    this.dataSource.data = files;
   }
 
   /** Transform the data to something the tree can read. */
@@ -84,17 +75,16 @@ export class PrivateTreeComponent {
 
   /** Get whether the node is expanded or not. */
   isExpandable(node: FlatTreeNode) {
-    return node.type == 'folder';
+    return node.expandable;
   }
 
   /** Get whether the node has children or not. */
   hasChild(index: number, node: FlatTreeNode) {
-    return node.type == 'folder';
+    return node.expandable;
   }
 
   /** Get the children for the node. */
   getChildren(node: FileNode): FileNode[] | null | undefined {
-    //this.afs.doc<FileNode>('privateFiles/'
     return node.children;
   }
 }

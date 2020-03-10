@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add an Organization: </h1>
+<h2>Organization Name:</h2>
+<mat-form-field class="description" appearance="outline">
+  <mat-label>Name</mat-label>
+  <input matInput>
+</mat-form-field>
+<h2>Organization Description:</h2>
+<mat-form-field class="description" appearance="outline">
+  <mat-label>Description</mat-label>
+  <textarea matInput></textarea>
+</mat-form-field>
+<h2>Organization Link:</h2>
+<mat-form-field class="description" appearance="outline">
+  <mat-label>Link</mat-label>
+  <input matInput>
+</mat-form-field>
+<h2>Organization Image:</h2><input type="file">
+
+<!--
+<button class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close (click)="save()">Save</button>
+-->
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="save()" cdkFocusInitial>Save</button>
+</div>

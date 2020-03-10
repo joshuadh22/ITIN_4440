@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppBarComponent } from './app-bar/app-bar.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -30,7 +31,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PublicTreeComponent } from './files/public-tree/tree.component';
 import { PrivateTreeComponent } from './files/private-tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './files/dialog/dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -45,11 +46,13 @@ import { HomeComponent } from './home/home.component';
 
 import { DirectoryData } from "./files/dialog/directory/directory.component";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
+import { AddOrganizationsDialogComponent } from './organizations/add-organizations-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddOrganizationsDialogComponent,
     AppBarComponent,
     SideNavigationComponent,
     PostsComponent,
@@ -95,6 +98,8 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
     TreeViewModule,
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
-  bootstrap: [AppComponent, DirectoryData]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+ 
 })
 export class AppModule { }

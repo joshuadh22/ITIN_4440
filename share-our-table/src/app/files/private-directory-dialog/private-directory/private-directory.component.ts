@@ -3,6 +3,8 @@ import { PrivateTreeComponent } from 'src/app/files/trees/private-tree/tree.comp
 import { FileNode } from 'src/app/files/trees/private-tree/tree.component';
 import { FlatTreeNode } from 'src/app/files/trees/private-tree/tree.component';
 
+import { files } from 'src/app/files/trees/private-tree/private-example-data';
+
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
@@ -16,7 +18,7 @@ import { of } from 'rxjs';
       Selected folder: {{selectedKeys.join(",")}}
     </div>
     <kendo-treeview
-        [nodes]=privateFiles
+        [nodes]=file
         textField=name
         [hasChildren]="hasChildren"
         [children]="fetchChildren"
@@ -41,6 +43,8 @@ export class PrivateDirectoryData {
     this.fileCollection = afs.collection<FileNode>('privateFiles');
     this.privateFiles = this.fileCollection.valueChanges();
   }
+
+  file = files
 
   public expandedKeys: any[] = [''];
   public selectedKeys: any[] = [''];

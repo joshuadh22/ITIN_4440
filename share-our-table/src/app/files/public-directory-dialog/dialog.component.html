@@ -4,61 +4,6 @@
 
 </public-directory>
 
-<!--
-<mat-form-field>
-    <mat-label>Drirectry Name</mat-label>
-    <mat-select name="fileName" [(value)]="selectedFile" placeholder="File">
-        <mat-option> 
-          'Root-folder'
-        </mat-option>
-        <mat-optgroup *ngFor="let file of file" [value]="file.name">
-          {{file.name}}
-          <mat-option *ngFor="let children of file.children" [value]="children.name">
-           {{children.name}}
-          </mat-option>
-        </mat-optgroup>
-    </mat-select>
-</mat-form-field>
--->
-
-<!--
-  <mat-form-field>
-    <mat-label>Drirectry Name</mat-label>
-    <mat-select name="fileName" [(value)]="selectedFile" placeholder="File">
-      <ol>
-        <mat-option *ngFor="let file of file" [value]="file.name">
-          <div>
-            {{file.name}}
-          </div>
-          <li>
-            <mat-option *ngFor="let children of file.children" [value]="children.name">
-              <div>
-                {{children.name}}
-              </div>
-            </mat-option>
-          </li>
-        </mat-option>
-      </ol>
-    </mat-select>
-</mat-form-field>
-
--->
-<!--
-<div>
-  <ol>
-       <li *ngFor="let file of file" > 
-            <div>{{file.name}}</div> 
-            <ol>
-                 <li *ngFor="let children of file.children"> 
-                      <div>{{children.name}}</div> 
-                 </li>
-            </ol>
-       </li>
-  </ol>
-</div>
--->
-
-
 <h2>File: </h2><input type="file">
 
 <h2>Description: </h2>

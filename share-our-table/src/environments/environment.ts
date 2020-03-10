@@ -25,5 +25,5 @@ export const config = {
       storageBucket: "share-our-table.appspot.com",
       messagingSenderId: "831446005912",
       appId: "1:831446005912:web:c5281990f7e8de5a5d78ed",
-  }
+  },
 };

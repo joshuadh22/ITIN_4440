@@ -1,24 +1,21 @@
 <div class="searchContainer">
-  <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Search</mat-label>
-      <input type="text" matInput>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </form>
-  <button class="uploadButton" (click)="openDialog()" style="float: right;" mat-raised-button color="primary">+ Upload</button>
-  <button class="folderButton" style="float: right;" mat-raised-button color="white">+ Folder</button>
- 
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Search</mat-label>
+            <input type="text" matInput>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </form>
+    <button *ngIf = "user!='public'" class="uploadButton" (click)="openDialog()" style="float: right;" mat-raised-button color="primary">+ Upload</button>
+    <button class="folderButton" style="float: right;" mat-raised-button color="white">+ Folder</button>
 </div>
 
 <mat-tab-group>
-
   <mat-tab label="Public"> 
     <public-tree></public-tree> 
   </mat-tab>
-
-  <mat-tab label="Private">
+  <mat-tab *ngIf = "user=='exec'" label="Private">
     <private-tree></private-tree> 
   </mat-tab>
-
 </mat-tab-group>
+

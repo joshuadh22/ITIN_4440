@@ -33,10 +33,17 @@ export class OrganizationComponent implements OnInit
   }
 
   edit: Boolean = false;
+  user: String = 'exec';
 
   setOrg(link: string, contactInfo: string, description: string)
   {
     this.afs.doc<Organization>('organizations/' + this.orgName).update({link: link, contactInfo: contactInfo, description: description});
+  }
+
+  //Waiting on UI to complete an add an org page
+  newOrg(nameIn: string, contactInfoIn: string, descriptionIn: string, imageIn: string, linkIn: string)
+  {
+    this.orgCollection.add({name: nameIn, contactInfo: contactInfoIn, description: descriptionIn, image: imageIn, link: linkIn})
   }
 
   ngOnInit() { }

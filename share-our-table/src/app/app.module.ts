@@ -28,8 +28,8 @@ import { UpcomingMeetingsComponent } from './posts/upcoming-meetings/upcoming-me
 import { FeedComponent } from './posts/feed/feed.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PublicTreeComponent } from './files/public-tree/tree.component';
-import { PrivateTreeComponent } from './files/private-tree/tree.component';
+import { PublicTreeComponent } from './files/trees/public-tree/tree.component';
+import { PrivateTreeComponent } from './files/trees/private-tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './files/dialog/dialog.component';
@@ -43,8 +43,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 
-
-import { DirectoryData } from "./files/dialog/directory/directory.component";
+import { PublicDialogComponent } from './files/public-directory-dialog/dialog.component';
+import { PrivateDialogComponent } from './files/private-directory-dialog/dialog.component';
+import { PublicDirectoryData } from "./files/public-directory-dialog/public-directory/public-directory.component";
+import { PrivateDirectoryData } from "./files/private-directory-dialog/private-directory/private-directory.component";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { AddOrganizationsDialogComponent } from './organizations/add-organizations-dialog.component';
 
@@ -66,9 +68,11 @@ import { AddOrganizationsDialogComponent } from './organizations/add-organizatio
     FeedComponent,
     PublicTreeComponent,
     PrivateTreeComponent,
-    DialogComponent,
+    PublicDialogComponent,
+    PrivateDialogComponent,
     HomeComponent,
-    DirectoryData,
+    PublicDirectoryData,
+    PrivateDirectoryData,
   ],
   imports: [
     BrowserModule,
@@ -98,8 +102,6 @@ import { AddOrganizationsDialogComponent } from './organizations/add-organizatio
     TreeViewModule,
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
- 
+  bootstrap: [AppComponent, PublicDirectoryData]
 })
 export class AppModule { }

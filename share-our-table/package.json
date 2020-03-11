@@ -26,7 +26,7 @@
     "@progress/kendo-angular-common": "^1.0.0",
     "@progress/kendo-angular-l10n": "^2.0.0",
     "@progress/kendo-angular-treeview": "^4.1.0",
-    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-theme-default": "^4.13.0",
     "angular": "^1.7.9",
     "firebase": "^7.10.0",
     "rxjs": "~6.5.4",

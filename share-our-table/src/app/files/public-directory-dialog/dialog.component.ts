@@ -36,6 +36,7 @@ export class PublicDialogComponent implements OnInit {
       this.description = descriptionIn;
       this.files = this.selectedFiles
     }
+    
   }
 
   ngOnInit(): void {

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { files } from './example-data';
+
+import { files } from './private-example-data';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -36,6 +37,7 @@ export interface FlatTreeNode {
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss']
 })
+
 export class PrivateTreeComponent {
 
   /** The TreeControl controls the expand/collapse state of tree nodes.  */
@@ -60,8 +62,13 @@ export class PrivateTreeComponent {
     this.treeControl = new FlatTreeControl(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
+    /** 
     this.fileCollection = afs.collection<FileNode>('privateFiles');
     this.privateFiles = this.fileCollection.valueChanges();
+    */
+
+   this.dataSource.data = files;
+  
   }
 
   /** Transform the data to something the tree can read. */

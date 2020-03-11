@@ -1,0 +1,23 @@
+<h1>Add a file to: </h1>
+
+<private-directory>
+  
+</private-directory>
+
+<form>
+    <h2>File: </h2>
+    <input class="file-input" type="file" (change)="setUpload($event.target.files)" multiple>
+
+    <h2>Description: </h2>
+
+    <mat-form-field class="description" appearance="outline">
+        <textarea ref-textarea [(ngModel)]="description" matInput placeholder="Enter message here..."></textarea>
+    </mat-form-field>
+    <button class="saveButton" style="float: right;" mat-raised-button color="primary" (click)="save(textarea.value)">Save</button>
+</form>
+
+
+<div *ngFor="let file of files">
+  <upload [file]="file" [description]="description" [folder]="'Private'"></upload>
+</div>
+

@@ -24,13 +24,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { OrganizationComponent } from './organizations/organization/organization.component';
 import { UpcomingMeetingsComponent } from './posts/upcoming-meetings/upcoming-meetings.component';
 import { FeedComponent } from './posts/feed/feed.component';
-import { MatDividerModule } from '@angular/material/divider';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PublicTreeComponent } from './files/public-tree/tree.component';
-import { PrivateTreeComponent } from './files/private-tree/tree.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PublicTreeComponent } from './files/trees/public-tree/tree.component';
+import { PrivateTreeComponent } from './files/trees/private-tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
-import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './files/dialog/dialog.component';
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -41,14 +40,22 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 
+import { PublicDialogComponent } from './files/public-directory-dialog/dialog.component';
+import { PrivateDialogComponent } from './files/private-directory-dialog/dialog.component';
+import { PublicDirectoryData } from "./files/public-directory-dialog/public-directory/public-directory.component";
+import { PrivateDirectoryData } from "./files/private-directory-dialog/private-directory/private-directory.component";
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
+import { AddOrganizationsDialogComponent } from './organizations/add-organizations-dialog.component';
 import 'firebase/storage';
 import { UploadDirective } from './upload.directive';
 import { UploadComponent } from './files/upload/upload.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddOrganizationsDialogComponent,
     AppBarComponent,
     SideNavigationComponent,
     PostsComponent,
@@ -63,9 +70,13 @@ import { UploadComponent } from './files/upload/upload.component';
     FeedComponent,
     PublicTreeComponent,
     PrivateTreeComponent,
-    DialogComponent,
+    PublicDialogComponent,
+    PrivateDialogComponent,
     HomeComponent,
-    UploadDirective
+    PublicDirectoryData,
+    PrivateDirectoryData,
+    UploadDirective,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,10 +103,11 @@ import { UploadComponent } from './files/upload/upload.component';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
+    TreeViewModule,
     BrowserModule,
     AngularFireStorageModule,
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
-  bootstrap: [AppComponent]
+  providers: [{provide: FirestoreSettingsToken, useValue: {}}],
+  bootstrap: [AppComponent, PublicDirectoryData]
 })
 export class AppModule { }

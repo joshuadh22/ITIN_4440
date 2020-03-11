@@ -1,7 +1,7 @@
 .header-background {
     overflow: hidden;
     display: block;
-    background: #3F51B5;
+    background-color: #f2902d;
 }
 
 .header-section {
@@ -23,9 +23,24 @@
 h1 {
     font-weight: 300;
     font-size: 56px;
+    color: rgba(0, 0, 0, 0.87);
 }
 
-h2 {
+.subhead {
     font-size: 18px;
     font-weight: 300;
+    color: rgba(0, 0, 0, 0.87)
+}
+
+.content {
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.75rem;
+}
+
+.contentHeaders {
+    text-align: center;
+    margin-top: 24px;
 }

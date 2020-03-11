@@ -10,9 +10,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class PublicDialogComponent implements OnInit {
-  message:string;
-  action:string = "Dismiss";
-  fileUploaded = false;
   files: File[] = [];
   selectedFiles :File[] = []  // A work around to upload when save is pressed.
   description: string = "defualt";
@@ -36,25 +33,11 @@ export class PublicDialogComponent implements OnInit {
    */
   save(descriptionIn: string) {
     if (this.selectedFiles != null) {
-      this.files = this.selectedFiles;
       this.description = descriptionIn;
-      this.fileUploaded = true;
+      this.files = this.selectedFiles
     }
-
-    if (this.fileUploaded === true) {  
-      this.message = 'File uploaded successfully!';
-    }
-    else {
-      this.message = 'File upload failed. Please try again.'
-    }
-    this._snackBar.open(this.message, this.action, {
-      duration: 5000,
-    });
-    this.dialog.closeAll();
   }
 
   ngOnInit(): void {
   }
-  
-  // file = files
 }

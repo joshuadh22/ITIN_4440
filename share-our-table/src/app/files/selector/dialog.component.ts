@@ -6,12 +6,17 @@ import { PrivateDialogComponent } from 'src/app/files/private-directory-dialog/d
 
 @Component({
   selector: 'public-private-selector-dialog',
+  template: `
+  <input type="file" (change)="uploadFile($event)">
+  `,
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
 
 export class PublicOrPrivateComponent implements OnInit {
-
+  animal: string;
+  name: string;
+  
   action:string = "Dismiss";
 
   constructor(public dialogRef: MatDialogRef<PublicOrPrivateComponent>, public dialog: MatDialog) {}
@@ -24,6 +29,7 @@ export class PublicOrPrivateComponent implements OnInit {
       width: '50vw',
       height: '38vw',
     });
+   
     this.onNoClick();
   }
 

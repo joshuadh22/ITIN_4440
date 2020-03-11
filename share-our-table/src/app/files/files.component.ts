@@ -20,18 +20,13 @@ export class FilesComponent implements OnInit {
   animal: string;
   name: string;
   files: File[] = [];
-
-  constructor(public dialog: MatDialog, private storage: AngularFireStorage) { }
+  constructor(public dialog: MatDialog) { }
 
   user: string = 'exec';
 
   ngOnInit(): void {
   }
 
-  // openPubicPrivateSelector(): void {
-  //   let dialogRef = this.dialog.open(PublicOrPrivateComponent, {
-  //     width: '40vw',
-  //     height: '30vw',
   onUpload(files: FileList) {
     for (let i = 0; i < files.length; i++) {
       this.files.push(files.item(i));
@@ -44,11 +39,11 @@ export class FilesComponent implements OnInit {
       height: '33vw',
       data: { name: this.name, animal: this.animal }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.animal = result;
       this.onUpload(name);
     });
+    
   }
 }

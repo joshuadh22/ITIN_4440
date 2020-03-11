@@ -4,12 +4,19 @@
 
 </public-directory>
 
-<h2>File: </h2><input type="file">
+<form>
+    <h2>File: </h2>
+    <input class="file-input" type="file" (change)="setUpload($event.target.files)" multiple>
 
-<h2>Description: </h2>
+    <h2>Description: </h2>
 
-<mat-form-field class="description" appearance="outline">
-  <textarea [(ngModel)]="description" matInput placeholder="Add description here..."></textarea>
-</mat-form-field>
+    <mat-form-field class="description" appearance="outline">
+        <textarea ref-textarea [(ngModel)]="description" matInput placeholder="Enter message here..."></textarea>
+    </mat-form-field>
+    <button class="saveButton" style="float: right;" mat-raised-button color="primary" (click)="save(textarea.value)">Save</button>
+  
+</form>
 
-<button class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close (click)="save(description)">Save</button>
+<div *ngFor="let file of files">
+    <upload [file]="file" [description]="description" [folder]="'Public'"></upload>
+</div>

@@ -7,6 +7,11 @@ import 'firebase/firestore';
 
 import { Organization } from '../../organization';
 
+interface testAuth
+{
+  userType: string,
+}
+
 @Component({
   selector: 'app-organization',
   templateUrl: './organization.component.html',
@@ -30,10 +35,25 @@ export class OrganizationComponent implements OnInit
 
     this.orgCollection = afs.collection<Organization>('organizations', ref => ref.where('name', '==', this.orgName));
     this.organizations = this.orgCollection.valueChanges();
+
+    this.pencil = false;
+    this.afs.doc<testAuth>('users/testAuth').valueChanges().subscribe(complete => this.setPencil(complete));
+  }
+
+  pencil: Boolean;
+  setPencil(user: testAuth)
+  {
+    if (user.userType == 'exec')
+    {
+      this.pencil = true;
+    }
+    else
+    {
+      this.pencil = false;
+    }
   }
 
   edit: Boolean = false;
-  user: String = 'exec';
 
   setOrg(link: string, contactInfo: string, description: string)
   {

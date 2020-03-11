@@ -1,0 +1,16 @@
+.footer {
+    padding: 12px;
+    font-size: 12px;
+    margin-top: 40px;
+    background: #F2902D;
+}
+
+.footerList {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row wrap;
+    padding: 8px;
+}

@@ -49,6 +49,7 @@ import { AddOrganizationsDialogComponent } from './organizations/add-organizatio
 import 'firebase/storage';
 import { UploadDirective } from './upload.directive';
 import { UploadComponent } from './files/upload/upload.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { UploadComponent } from './files/upload/upload.component';
     PublicDirectoryData,
     PrivateDirectoryData,
     UploadDirective,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

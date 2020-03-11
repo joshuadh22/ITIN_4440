@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { PublicDialogComponent } from 'src/app/files/public-directory-dialog/dialog.component';
 import { PrivateDialogComponent } from 'src/app/files/private-directory-dialog/dialog.component';
@@ -14,7 +14,7 @@ export class PublicOrPrivateComponent implements OnInit {
 
   action:string = "Dismiss";
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialogRef: MatDialogRef<PublicOrPrivateComponent>, public dialog: MatDialog) {}
 
   ngOnInit(): void {
   }
@@ -24,6 +24,7 @@ export class PublicOrPrivateComponent implements OnInit {
       width: '50vw',
       height: '38vw',
     });
+    this.onNoClick();
   }
 
   openPrivateUploader(): void {
@@ -31,7 +32,10 @@ export class PublicOrPrivateComponent implements OnInit {
       width: '50vw',
       height: '38vw',
     });
+    this.onNoClick();
   }
 
-
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

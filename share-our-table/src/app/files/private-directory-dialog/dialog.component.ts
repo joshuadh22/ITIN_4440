@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -13,7 +14,7 @@ export class PrivateDialogComponent implements OnInit {
   action:string = "Dismiss";
   fileUploaded = false;
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) { }
 
   save() {
     if (this.fileUploaded === true)
@@ -27,6 +28,7 @@ export class PrivateDialogComponent implements OnInit {
     this._snackBar.open(this.message, this.action, {
       duration: 5000,
     });
+    this.dialog.closeAll();
   }
 
   ngOnInit(): void {

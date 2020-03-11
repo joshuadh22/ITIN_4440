@@ -1,17 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppBarComponent } from './app-bar/app-bar.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { PostsComponent } from './posts/posts.component';
@@ -20,19 +19,19 @@ import { OrganizationsComponent } from './organizations/organizations.component'
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { OrganizationComponent } from './organizations/organization/organization.component';
 import { UpcomingMeetingsComponent } from './posts/upcoming-meetings/upcoming-meetings.component';
 import { FeedComponent } from './posts/feed/feed.component';
-import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PublicTreeComponent } from './files/trees/public-tree/tree.component';
 import { PrivateTreeComponent } from './files/trees/private-tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDialogModule} from '@angular/material/dialog';
-import {MatSelectModule} from '@angular/material/select';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AngularFireModule } from '@angular/fire';
@@ -47,6 +46,9 @@ import { PublicDirectoryData } from "./files/public-directory-dialog/public-dire
 import { PrivateDirectoryData } from "./files/private-directory-dialog/private-directory/private-directory.component";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { AddOrganizationsDialogComponent } from './organizations/add-organizations-dialog.component';
+import 'firebase/storage';
+import { UploadDirective } from './upload.directive';
+import { UploadComponent } from './files/upload/upload.component';
 
 
 @NgModule({
@@ -57,6 +59,7 @@ import { AddOrganizationsDialogComponent } from './organizations/add-organizatio
     SideNavigationComponent,
     PostsComponent,
     FilesComponent,
+    UploadComponent,
     OrganizationsComponent,
     CalendarComponent,
     NotificationsComponent,
@@ -71,6 +74,7 @@ import { AddOrganizationsDialogComponent } from './organizations/add-organizatio
     HomeComponent,
     PublicDirectoryData,
     PrivateDirectoryData,
+    UploadDirective,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +102,8 @@ import { AddOrganizationsDialogComponent } from './organizations/add-organizatio
     MatSelectModule,
     MatTabsModule,
     TreeViewModule,
+    BrowserModule,
+    AngularFireStorageModule,
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent, PublicDirectoryData]

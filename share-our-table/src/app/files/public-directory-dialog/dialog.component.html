@@ -9,7 +9,7 @@
 <h2>Description: </h2>
 
 <mat-form-field class="description" appearance="outline">
-  <textarea matInput placeholder="Add description here..."></textarea>
+  <textarea [(ngModel)]="description" matInput placeholder="Add description here..."></textarea>
 </mat-form-field>
 
-<button class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close (click)="save()">Save</button>
+<button class="saveButton" style="float: right;" mat-raised-button color="primary" mat-dialog-close (click)="save(description)">Save</button>

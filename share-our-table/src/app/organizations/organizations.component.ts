@@ -53,7 +53,7 @@ export class OrganizationsComponent
     //link: string;
     //image: string;
 
-  //constructor(public dialog: MatDialog){}
+  user: string = 'exec';
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddOrganizationsDialogComponent, {

@@ -6,9 +6,6 @@ import { PrivateDialogComponent } from 'src/app/files/private-directory-dialog/d
 
 @Component({
   selector: 'public-private-selector-dialog',
-  template: `
-  <input type="file" (change)="uploadFile($event)">
-  `,
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })

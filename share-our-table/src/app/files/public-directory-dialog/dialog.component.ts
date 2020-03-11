@@ -35,7 +35,16 @@ export class PublicDialogComponent implements OnInit {
     if (this.selectedFiles != null) {
       this.description = descriptionIn;
       this.files = this.selectedFiles
+      this._snackBar.open('File uploaded successfully!', 'Dismiss', {
+        duration: 5000,
+      });
     }
+    else {
+      this._snackBar.open('ERROR: File not uploaded. Please try again.', 'Dismiss', {
+        duration: 5000,
+      });
+    }
+    
   }
 
   ngOnInit(): void {

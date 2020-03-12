@@ -25,6 +25,7 @@ export class FilesComponent implements OnInit {
   {
     this.upload = false;
     this.afs.doc<testAuth>('users/testAuth').valueChanges().subscribe(complete => this.setupload(complete));
+    this.afs.doc<testAuth>('users/testAuth').valueChanges().subscribe(complete => this.setprivateTab(complete));
   }
 
   upload: Boolean;
@@ -40,7 +41,18 @@ export class FilesComponent implements OnInit {
     }
   }
 
-  user: string = 'exec';
+  privateTab: Boolean;
+  setprivateTab(user: testAuth)
+  {
+    if (user.userType == 'exec')
+    {
+      this.privateTab = true;
+    }
+    else
+    {
+      this.privateTab = false;
+    }
+  }
 
   ngOnInit(): void {
   }

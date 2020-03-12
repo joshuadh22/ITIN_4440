@@ -12,9 +12,12 @@
 
 <mat-tab-group>
   <mat-tab label="Public">
-    <public-tree></public-tree>
+    <public></public> 
   </mat-tab>
-  <mat-tab *ngIf = "privateTab" label="Private">
-    <private-tree></private-tree>
+  <!-- <mat-tab *ngIf="privateTab" label="Private">
+    <private></private>
+  </mat-tab> -->
+  <mat-tab label="Private">
+    <private></private>
   </mat-tab>
 </mat-tab-group>

@@ -14,7 +14,6 @@
         <textarea ref-textarea [(ngModel)]="description" matInput placeholder="Enter message here..."></textarea>
     </mat-form-field>
     <button class="saveButton" style="float: right;" mat-raised-button color="primary" (click)="save(textarea.value)">Save</button>
-  
 </form>
 
 <div *ngFor="let file of files">

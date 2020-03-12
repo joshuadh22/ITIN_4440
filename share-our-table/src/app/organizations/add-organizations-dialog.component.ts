@@ -15,7 +15,9 @@ export class AddOrganizationsDialogComponent implements OnInit {
 
   constructor(private _snackBar: MatSnackBar) { }
 
+
   save() {
+
   //   if (this.fileUploaded === true)
   //   {
   //     this.message = 'Organization Creation successfull!';

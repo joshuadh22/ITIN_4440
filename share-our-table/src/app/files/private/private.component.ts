@@ -17,13 +17,13 @@ export interface orgDataDialog {
 }
 
 @Component({
-  selector: 'public',
-  templateUrl: './public.component.html',
-  styleUrls: ['./public.component.scss']
+  selector: 'private',
+  templateUrl: './private.component.html',
+  styleUrls: ['./private.component.scss']
 })
 
 @Injectable()
-export class PublicComponent
+export class PrivateComponent
 {
   name: string;
   description: string;
@@ -36,7 +36,7 @@ export class PublicComponent
 
   constructor(private afs: AngularFirestore,public dialog: MatDialog)
   {
-    this.fileCollection = afs.collection<File>('publicFiles');
+    this.fileCollection = afs.collection<File>('privateFiles');
     this.files = this.fileCollection.valueChanges();
   }
  

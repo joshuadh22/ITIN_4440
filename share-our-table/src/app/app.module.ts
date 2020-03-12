@@ -52,8 +52,7 @@ import { UploadComponent } from './files/upload/upload.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { PublicComponent } from './files/public/public.component';
-import { FileComponent } from './files/file/file.component';
-
+import { PrivateComponent } from './files/private/private.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +81,7 @@ import { FileComponent } from './files/file/file.component';
     FooterComponent,
 
     PublicComponent,
-    FileComponent
+    PrivateComponent
   ],
   imports: [
     BrowserModule,

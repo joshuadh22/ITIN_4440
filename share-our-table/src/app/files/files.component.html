@@ -12,12 +12,9 @@
 
 <mat-tab-group>
   <mat-tab label="Public"> 
-    <public-tree></public-tree> 
-  </mat-tab>
-  <mat-tab label="PublicFiles"> 
     <public></public> 
   </mat-tab>
   <mat-tab *ngIf = "user=='exec'" label="Private">
-    <private-tree></private-tree> 
+    <private></private> 
   </mat-tab>
 </mat-tab-group>

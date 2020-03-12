@@ -6,8 +6,6 @@ import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
 import { File } from '../../file';
-//import { DialogComponent } from '../files/dialog/dialog.component';
-// import { AddOrganizationsDialogComponent } from './add-organizations-dialog.component';
 
 export interface orgDataDialog {
   name: string;
@@ -31,8 +29,6 @@ export class PublicComponent
   image: string;
   private fileCollection: AngularFirestoreCollection<File>;
   files: Observable<File[]>;
-  downloads: string[];
-  downloadsLength: number = 0;
 
   constructor(private afs: AngularFirestore,public dialog: MatDialog)
   {
@@ -43,8 +39,4 @@ export class PublicComponent
   ngOnInit(): void { 
   }
 
-  addFileDownload(downloadURLIn: string) {
-    this.downloads.push(downloadURLIn);
-  }
-  
 }

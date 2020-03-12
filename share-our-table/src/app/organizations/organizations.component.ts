@@ -74,8 +74,6 @@ export class OrganizationsComponent
     //link: string;
     //image: string;
 
-  user: string = 'exec';
-
   openDialog(): void {
     const dialogRef = this.dialog.open(AddOrganizationsDialogComponent, {
       width: '50vw',

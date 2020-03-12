@@ -1,28 +1,29 @@
 <h2>Are you going to upload your file to</h2>
 
 <div class="box">
-    <div class="public-button">
-        <button (click)="openPublicUploader()">
-            <h2>Public</h2>
-            <i class="material-icons">
-                lock_open
-            </i>
-        </button>
+    
+    <div class="buttons">
+        <div class="theButton">
+        <h2>Public</h2>
+            <button mat-icon-button (click)="openPublicUploader()">
+                <mat-icon>lock_open</mat-icon>
+            </button>
+        </div>
     </div>
 
     <div>
         <h1>or</h1>
     </div>
     
-
-    <div class="public-button">
-        <button (click)="openPrivateUploader()">
-            <h2>Private</h2>
-            <i class="material-icons">
-                lock
-            </i>
+    <div class="buttons">
+        <div class="theButton">
+        <h2>Private</h2>
+        <button mat-icon-button (click)="openPrivateUploader()">
+            <mat-icon>lock</mat-icon>
         </button>
+        </div>
     </div>
+    
 </div>
 
 

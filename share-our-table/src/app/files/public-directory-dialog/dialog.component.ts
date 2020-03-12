@@ -44,6 +44,7 @@ export class PublicDialogComponent implements OnInit {
         duration: 5000,
       });
     }
+    
   }
 
   ngOnInit(): void {

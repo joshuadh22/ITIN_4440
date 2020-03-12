@@ -1,0 +1,66 @@
+.example-card {
+  max-width: 250px;
+  margin: 24px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+img {
+  height: 200px;
+}
+
+mat-card-content {
+  height: 100px;
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h2{
+  margin-top: 30px;
+}
+input{
+  margin-left: 50px;
+}
+.description{
+  display: block;
+  width: 70%;
+  margin-left: 50px;
+}
+.saveButton {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.fab {
+    top: auto !important;
+    right: 20px !important;
+    bottom: 10px !important;
+    left: auto !important;
+    position: fixed !important;
+}

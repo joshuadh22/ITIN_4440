@@ -51,6 +51,9 @@ import { UploadDirective } from './upload.directive';
 import { UploadComponent } from './files/upload/upload.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { PublicComponent } from './files/public/public.component';
+import { FileComponent } from './files/file/file.component';
+
 
 @NgModule({
   declarations: [
@@ -77,6 +80,9 @@ import { FooterComponent } from './footer/footer.component';
     PrivateDirectoryData,
     UploadDirective,
     FooterComponent,
+
+    PublicComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,

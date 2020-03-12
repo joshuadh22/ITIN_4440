@@ -1,6 +1,6 @@
 <div>
   <!--We need this to link to a new Add an Organization Page with a fields for a new org-->
-  <button *ngIf="user=='exec'" class="fab" mat-mini-fab color="primary" (click)="openDialog()">
+  <button *ngIf="plus" class="fab" mat-mini-fab color="primary" (click)="openDialog()">
     <mat-icon> add </mat-icon>
   </button>
   <mat-card class="example-card" *ngFor="let organization of organizations | async">

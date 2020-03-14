@@ -15,7 +15,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { PostsComponent } from './posts/posts.component';
 import { FilesComponent } from './files/files.component';
-import { OrganizationsComponent } from './organizations/organizations.component';
+import { OrganizationsComponent, AddOrganizationsDialog } from './organizations/organizations.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
@@ -45,18 +45,17 @@ import { PrivateDialogComponent } from './files/private-directory-dialog/dialog.
 import { PublicDirectoryData } from "./files/public-directory-dialog/public-directory/public-directory.component";
 import { PrivateDirectoryData } from "./files/private-directory-dialog/private-directory/private-directory.component";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
-import { AddOrganizationsDialogComponent } from './organizations/add-organizations-dialog.component';
 import 'firebase/storage';
 import { UploadDirective } from './upload.directive';
 import { UploadComponent } from './files/upload/upload.component';
 import { FooterComponent } from './footer/footer.component';
 import { PublicOrPrivateComponent } from './files/selector/dialog.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddOrganizationsDialogComponent,
     AppBarComponent,
     SideNavigationComponent,
     PostsComponent,
@@ -79,6 +78,7 @@ import { PublicOrPrivateComponent } from './files/selector/dialog.component';
     UploadDirective,
     FooterComponent,
     PublicOrPrivateComponent,
+    AddOrganizationsDialog
   ],
   imports: [
     BrowserModule,
@@ -108,6 +108,7 @@ import { PublicOrPrivateComponent } from './files/selector/dialog.component';
     TreeViewModule,
     BrowserModule,
     AngularFireStorageModule,
+    CommonModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent, PublicDirectoryData]

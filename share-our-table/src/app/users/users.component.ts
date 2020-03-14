@@ -46,7 +46,7 @@ export class UsersComponent implements OnInit {
 
   archiveAccount(element)
   {
-    if(window.confirm('Are you sure you want to archive ' + element.userName + '\'s account'))
+    if(window.confirm('Are you sure you want to archive ' + element.userName + '\'s account?'))
     {
       // Archive logic here
     }
@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
 
   reenableAccount(element)
   {
-    if(window.confirm('Are you sure you want to re-enable ' + element.userName + '\'s account'))
+    if(window.confirm('Are you sure you want to re-enable ' + element.userName + '\'s account?'))
     {
       // Re-enable logic here
     }

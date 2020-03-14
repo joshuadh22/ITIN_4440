@@ -34,7 +34,7 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="archiveAccount(data)">
                         <mat-icon>archive</mat-icon>
                         <span>Archive</span>
                     </button>
@@ -42,11 +42,11 @@
                         <mat-icon>autorenew</mat-icon>
                         <span>Change permission level</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="deleteAccount(data)">
                         <mat-icon>delete</mat-icon>
                         <span>Delete</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="reenableAccount(data)">
                         <mat-icon>unarchive</mat-icon>
                         <span>Re-enable account</span>
                     </button>

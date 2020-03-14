@@ -27,12 +27,37 @@ const USER_DATA: Users[] = [
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['userName', 'organization', 'userType', 'actions'];
   dataSource = new MatTableDataSource(USER_DATA);
+  element: any;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor() { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
+  }
+
+  deleteAccount(element)
+  {
+    if(window.confirm('Are you sure you want to delete ' + element.userName + '\'s account?'))
+    {
+      // Delete logic here
+    }
+  }
+
+  archiveAccount(element)
+  {
+    if(window.confirm('Are you sure you want to archive ' + element.userName + '\'s account'))
+    {
+      // Archive logic here
+    }
+  }
+
+  reenableAccount(element)
+  {
+    if(window.confirm('Are you sure you want to re-enable ' + element.userName + '\'s account'))
+    {
+      // Re-enable logic here
+    }
   }
 
 }

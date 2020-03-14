@@ -54,6 +54,9 @@ import { CommonModule } from '@angular/common';
 
 import { PublicComponent } from './files/public/public.component';
 import { PrivateComponent } from './files/private/private.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -113,7 +116,10 @@ import { PrivateComponent } from './files/private/private.component';
     TreeViewModule,
     BrowserModule,
     AngularFireStorageModule,
-    CommonModule
+    CommonModule,
+    MatTableModule,
+    MatSortModule,
+    MatMenuModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent, PublicDirectoryData]

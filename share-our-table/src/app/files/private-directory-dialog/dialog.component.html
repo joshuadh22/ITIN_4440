@@ -16,7 +16,6 @@
     <button class="saveButton" style="float: right;" mat-raised-button color="primary" (click)="save(textarea.value)">Save</button>
 </form>
 
-
 <div *ngFor="let file of files">
   <upload [file]="file" [description]="description" [folder]="'Private'"></upload>
 </div>

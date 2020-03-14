@@ -5,6 +5,11 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
+interface testAuth
+{
+  userType: string,
+}
+
 import { Organization } from '../organization';
 
 export interface orgDataDialog {
@@ -34,12 +39,26 @@ export class OrganizationsComponent
   {
     this.orgCollection = afs.collection<Organization>('organizations');
     this.organizations = this.orgCollection.valueChanges();
-  }
- 
-  ngOnInit(): void { 
+
+    this.plus = false;
+    this.afs.doc<testAuth>('users/testAuth').valueChanges().subscribe(complete => this.setplus(complete));
   }
 
-  user: string = 'exec';
+  plus: Boolean;
+  setplus(user: testAuth)
+  {
+    if (user.userType == 'exec')
+    {
+      this.plus = true;
+    }
+    else
+    {
+      this.plus = false;
+    }
+  }
+
+  ngOnInit(): void {
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddOrganizationsDialog, {

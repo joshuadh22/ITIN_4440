@@ -52,6 +52,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PublicOrPrivateComponent } from './files/selector/dialog.component';
 import { CommonModule } from '@angular/common';
 
+import { PublicComponent } from './files/public/public.component';
+import { PrivateComponent } from './files/private/private.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,10 @@ import { CommonModule } from '@angular/common';
     UploadDirective,
     FooterComponent,
     PublicOrPrivateComponent,
-    AddOrganizationsDialog
+    AddOrganizationsDialog,
+
+    PublicComponent,
+    PrivateComponent
   ],
   imports: [
     BrowserModule,

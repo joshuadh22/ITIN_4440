@@ -1,5 +1,8 @@
 <h1>This file is: </h1>
-<mat-slide-toggle [(ngModel)]="toggleChecked">Private File</mat-slide-toggle>
+<mat-slide-toggle [(ngModel)]="toggleChecked">
+    <span *ngIf="!toggleChecked">Public File</span>
+    <span *ngIf="toggleChecked">Private File</span>
+</mat-slide-toggle>
 
 <h2>Add a file to: </h2>
 

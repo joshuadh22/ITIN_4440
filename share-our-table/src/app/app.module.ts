@@ -40,16 +40,14 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 
-import { PublicDialogComponent } from './files/public-directory-dialog/dialog.component';
-import { PrivateDialogComponent } from './files/private-directory-dialog/dialog.component';
-import { PublicDirectoryData } from "./files/public-directory-dialog/public-directory/public-directory.component";
-import { PrivateDirectoryData } from "./files/private-directory-dialog/private-directory/private-directory.component";
+import { PublicDialogComponent } from './files/upload-screen-dialog/dialog.component';
+import { PublicDirectoryData } from "./files/upload-screen-dialog/public-directory/public-directory.component";
+import { PrivateDirectoryData } from "./files/upload-screen-dialog/private-directory/private-directory.component";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import 'firebase/storage';
 import { UploadDirective } from './upload.directive';
 import { UploadComponent } from './files/upload/upload.component';
 import { FooterComponent } from './footer/footer.component';
-import { PublicOrPrivateComponent } from './files/selector/dialog.component';
 import { CommonModule } from '@angular/common';
 
 import { PublicComponent } from './files/public/public.component';
@@ -57,6 +55,9 @@ import { PrivateComponent } from './files/private/private.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
+
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -76,13 +77,11 @@ import {MatMenuModule} from '@angular/material/menu';
     PublicTreeComponent,
     PrivateTreeComponent,
     PublicDialogComponent,
-    PrivateDialogComponent,
     HomeComponent,
     PublicDirectoryData,
     PrivateDirectoryData,
     UploadDirective,
     FooterComponent,
-    PublicOrPrivateComponent,
     AddOrganizationsDialog,
 
     PublicComponent,
@@ -119,9 +118,11 @@ import {MatMenuModule} from '@angular/material/menu';
     CommonModule,
     MatTableModule,
     MatSortModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSliderModule,
+    MatSlideToggleModule,
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
-  bootstrap: [AppComponent, PublicDirectoryData]
+  bootstrap: [AppComponent, PublicDirectoryData, PrivateDirectoryData]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 h2{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 input{
     margin-left: 50px;
@@ -12,4 +12,12 @@ input{
 .saveButton {
     display: block;
     margin-bottom: 30px;
+}
+
+mat-slide-toggle{
+    margin-left: 20px;
+}
+
+.directory{
+    margin-left: 20px;
 }

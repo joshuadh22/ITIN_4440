@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { PublicOrPrivateComponent } from './selector/dialog.component';
+import { PublicDialogComponent } from 'src/app/files/upload-screen-dialog/dialog.component';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
@@ -57,17 +57,12 @@ export class FilesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  openDialog(): void {
-    let dialogRef = this.dialog.open(PublicOrPrivateComponent, {
+  openPublicUploader(): void {
+    let dialogRef = this.dialog.open(PublicDialogComponent, {
       width: '50vw',
-      height: '33vw',
-      data: { name: this.name, animal: this.animal }
+      height: '40vw',
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
-
+  
   }
+
 }

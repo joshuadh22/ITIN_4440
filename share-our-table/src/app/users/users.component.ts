@@ -39,6 +39,12 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   constructor(public dialog: MatDialog) { }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase(); 
+    this.dataSource.filter = filterValue;
+  }
+
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;

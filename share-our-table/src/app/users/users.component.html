@@ -1,5 +1,14 @@
-<div class="container">
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<div class="container mat-elevation-z8">
+    <div class="example-header">
+        <mat-form-field class="filter">
+            <input matInput #filter (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            <button mat-icon-button matSuffix aria-label="clear" *ngIf="filter.value"
+                (click)="filter.value=''; applyFilter('');">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort>
 
         <ng-container matColumnDef="userName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>

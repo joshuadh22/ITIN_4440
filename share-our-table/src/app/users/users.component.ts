@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { doesNotReject } from 'assert';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import {ConfirmDialogModel, ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
+import {MatPaginator} from '@angular/material/paginator';
 
 export interface Users {
   userName: string;
@@ -28,17 +31,25 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['userName', 'organization', 'userType', 'actions'];
   dataSource = new MatTableDataSource(USER_DATA);
   element: any;
+  result: boolean;
+  message: string;
+  userType: string;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor() { }
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  constructor(public dialog: MatDialog) { }
+
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   deleteAccount(element)
   {
-    if(window.confirm('Are you sure you want to delete ' + element.userName + '\'s account?'))
+    const message = 'Are you sure you want to delete ' + element.userName + '\'s account?';
+    this.confirmDialog(message);
+    if (this.result)
     {
       // Delete logic here
     }
@@ -46,7 +57,9 @@ export class UsersComponent implements OnInit {
 
   archiveAccount(element)
   {
-    if(window.confirm('Are you sure you want to archive ' + element.userName + '\'s account?'))
+    const message = 'Are you sure you want to archive ' + element.userName + '\'s account?';
+    this.confirmDialog(message);
+    if (this.result)
     {
       // Archive logic here
     }
@@ -54,10 +67,28 @@ export class UsersComponent implements OnInit {
 
   reenableAccount(element)
   {
-    if(window.confirm('Are you sure you want to re-enable ' + element.userName + '\'s account?'))
+    const message = 'Are you sure you want to re-enable ' + element.userName + '\'s account?';
+    this.confirmDialog(message);
+    if (this.result)
     {
       // Re-enable logic here
     }
+  }
+
+  changeUserType(element) 
+  {
+    const message = 'Are you sure you want to change ' + element.userName + '\'s user type to ' + element.userType + '?';
+    this.confirmDialog(message);
+    if (this.result)
+    {
+      // Re-enable logic here
+    }
+  }
+
+  confirmDialog(message): void {
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: "500px", data: dialogData});
+    dialogRef.afterClosed().subscribe(dialogResult => {this.result = dialogResult;});
   }
 
 }

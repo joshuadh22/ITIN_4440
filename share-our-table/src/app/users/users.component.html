@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
         <ng-container matColumnDef="userName">
@@ -22,7 +22,13 @@
                 User type
             </th>
             <td mat-cell *matCellDef="let data">
-                {{data.userType}}
+                <mat-form-field>
+                    <mat-select [(value)]="data.userType">
+                        <mat-option value="Exec" (click)="changeUserType(data)">Exec</mat-option>
+                        <mat-option value="Admin" (click)="changeUserType(data)">Admin</mat-option>
+                        <mat-option value="User" (click)="changeUserType(data)">User</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </td>
         </ng-container>
         <ng-container matColumnDef="actions">
@@ -38,10 +44,6 @@
                         <mat-icon>archive</mat-icon>
                         <span>Archive</span>
                     </button>
-                    <button mat-menu-item>
-                        <mat-icon>autorenew</mat-icon>
-                        <span>Change permission level</span>
-                    </button>
                     <button mat-menu-item (click)="deleteAccount(data)">
                         <mat-icon>delete</mat-icon>
                         <span>Delete</span>
@@ -56,4 +58,5 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[20, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>

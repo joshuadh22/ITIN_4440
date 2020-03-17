@@ -58,6 +58,8 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ConfirmDialogComponent } from './users/confirm-dialog/confirm-dialog.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     AddOrganizationsDialog,
 
     PublicComponent,
-    PrivateComponent
+    PrivateComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +124,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatMenuModule,
     MatSliderModule,
     MatSlideToggleModule,
+    MatPaginatorModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent, PublicDirectoryData, PrivateDirectoryData]

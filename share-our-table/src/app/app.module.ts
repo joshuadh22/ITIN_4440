@@ -60,6 +60,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './users/confirm-dialog/confirm-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
     PublicComponent,
     PrivateComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

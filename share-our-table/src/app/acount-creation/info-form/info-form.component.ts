@@ -19,6 +19,7 @@ export interface orgData {
 })
 
 export class InfoForm implements OnInit {
+    selectedValue: string;
     name: string;
     private orgCollection: AngularFirestoreCollection<Organization>;
     organizationCollection: Organization[];

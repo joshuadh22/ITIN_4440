@@ -1,29 +1,10 @@
-.header-background {
-    overflow: hidden;
-    display: block;
-    background-color: #f2902d;
-}
-
-.header-section {
-    text-align: center;
-    padding-top: 60px;
-    display: block;
-}
-
-.header-headline {
-    color: white;
-    display: block;
-}
-
-.header-button {
-    text-align: center;
-    margin: 60px 0;
-}
-
 h1 {
     font-weight: 300;
     font-size: 56px;
     color: rgba(0, 0, 0, 0.87);
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .subhead {

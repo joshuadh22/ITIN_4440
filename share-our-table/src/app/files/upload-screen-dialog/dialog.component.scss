@@ -1,0 +1,44 @@
+h2{
+    margin-top: 20px;
+}
+input{
+    margin-left: 50px;
+}
+
+p{
+    line-height: 0.5;
+}
+.file-size{
+    margin-left: 52px;
+    color: gray;
+    padding-top: 15px;
+    font-size: 13px;
+}
+
+.file-type{
+    margin-left: 52px;
+    color: gray;
+    font-size: 13px;
+}
+
+.description{
+    display: block;
+    width: 70%;
+    margin-left: 50px;
+}
+.saveButton {
+    display: block;
+    margin-bottom: 30px;
+}
+
+mat-slide-toggle{
+    margin-left: 20px;
+}
+
+.directory{
+    margin-left: 20px;
+}
+
+span{
+    font-size: 20px;
+}

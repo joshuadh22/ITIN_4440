@@ -15,7 +15,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { PostsComponent } from './posts/posts.component';
 import { FilesComponent } from './files/files.component';
-import { OrganizationsComponent } from './organizations/organizations.component';
+import { OrganizationsComponent, AddOrganizationsDialog } from './organizations/organizations.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
@@ -40,24 +40,36 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { config } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 
-import { PublicDialogComponent } from './files/public-directory-dialog/dialog.component';
-import { PrivateDialogComponent } from './files/private-directory-dialog/dialog.component';
-import { PublicDirectoryData } from "./files/public-directory-dialog/public-directory/public-directory.component";
-import { PrivateDirectoryData } from "./files/private-directory-dialog/private-directory/private-directory.component";
+import { PublicDialogComponent } from './files/upload-screen-dialog/dialog.component';
+import { PublicDirectoryData } from "./files/upload-screen-dialog/public-directory/public-directory.component";
+import { PrivateDirectoryData } from "./files/upload-screen-dialog/private-directory/private-directory.component";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
-import { AddOrganizationsDialogComponent } from './organizations/add-organizations-dialog.component';
 import 'firebase/storage';
 import { UploadDirective } from './upload.directive';
 import { UploadComponent } from './files/upload/upload.component';
 import { FooterComponent } from './footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 import { PublicComponent } from './files/public/public.component';
 import { PrivateComponent } from './files/private/private.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
+
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ConfirmDialogComponent } from './users/confirm-dialog/confirm-dialog.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AboutComponent } from './about/about.component';
+
+import { SignUp } from './acount-creation/sign-up.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { InfoForm } from './acount-creation/info-form/info-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddOrganizationsDialogComponent,
     AppBarComponent,
     SideNavigationComponent,
     PostsComponent,
@@ -73,15 +85,20 @@ import { PrivateComponent } from './files/private/private.component';
     PublicTreeComponent,
     PrivateTreeComponent,
     PublicDialogComponent,
-    PrivateDialogComponent,
     HomeComponent,
     PublicDirectoryData,
     PrivateDirectoryData,
     UploadDirective,
     FooterComponent,
+    AddOrganizationsDialog,
 
     PublicComponent,
-    PrivateComponent
+    PrivateComponent,
+    ConfirmDialogComponent,
+    AboutComponent,
+
+    SignUp,
+    InfoForm
   ],
   imports: [
     BrowserModule,
@@ -111,8 +128,16 @@ import { PrivateComponent } from './files/private/private.component';
     TreeViewModule,
     BrowserModule,
     AngularFireStorageModule,
+    CommonModule,
+    MatTableModule,
+    MatSortModule,
+    MatMenuModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatPaginatorModule,
+    MatCheckboxModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
-  bootstrap: [AppComponent, PublicDirectoryData]
+  bootstrap: [AppComponent, PublicDirectoryData, PrivateDirectoryData, SignUp]
 })
 export class AppModule { }

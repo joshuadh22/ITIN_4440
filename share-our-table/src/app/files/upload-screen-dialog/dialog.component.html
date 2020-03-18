@@ -1,12 +1,28 @@
-<h1>Add a file to: </h1>
+<h1>This file is: </h1>
+<mat-slide-toggle [(ngModel)]="toggleChecked">
+    <span *ngIf="!toggleChecked">Public File</span>
+    <span *ngIf="toggleChecked">Private File</span>
+</mat-slide-toggle>
 
-<public-directory>
+<h2>Add a file to: </h2>
 
-</public-directory>
+<div class="directory">
+    <public-directory *ngIf="!toggleChecked">
+
+    </public-directory>
+    
+    <private-directory *ngIf="toggleChecked">
+    
+    </private-directory>
+</div>
+
 
 <form>
     <h2>File: </h2>
     <input class="file-input" type="file" (change)="setUpload($event.target.files)" multiple>
+
+    <p class="file-size">Maximum upload file size: 50MB.</p>
+    <p class="file-type">Acceptable file types: docx, pptx, xlsx, pdf.</p>
 
     <h2>Description: </h2>
 

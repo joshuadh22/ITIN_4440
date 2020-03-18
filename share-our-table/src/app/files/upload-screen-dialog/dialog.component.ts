@@ -13,6 +13,7 @@ export class PublicDialogComponent implements OnInit {
   files: File[] = [];
   selectedFiles :File[] = []  // A work around to upload when save is pressed.
   description: string = "defualt";
+  toggleChecked: boolean = false;
  
   constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) { }
 

@@ -42,7 +42,7 @@ import { PrivateTreeComponent } from 'src/app/files/trees/private-tree/tree.comp
 import { FileNode } from 'src/app/files/trees/private-tree/tree.component';
 import { FlatTreeNode } from 'src/app/files/trees/private-tree/tree.component';
 
-import { files } from 'src/app/files/trees/private-tree/private-example-data';
+import { files } from 'src/app/files/trees/public-tree/example-data';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';

@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 
 import { OrganizationComponent } from './organizations/organization/organization.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'users', component: UsersComponent},
   { path: 'notifications', component: NotificationsComponent },
+  { path: 'about', component: AboutComponent },
 
   { path: 'organizations', component: OrganizationsComponent },
   { path: 'organizations/:name', component: OrganizationComponent}

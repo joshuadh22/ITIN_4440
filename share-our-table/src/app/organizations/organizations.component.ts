@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Inject } from '@angular/core';
+import { Component, Injectable, Inject } from '@angular/core';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -11,8 +11,6 @@ interface testAuth
 }
 
 import { Organization } from '../organization';
-//import { DialogComponent } from '../files/dialog/dialog.component';
-import { AddOrganizationsDialogComponent } from './add-organizations-dialog.component';
 
 export interface orgDataDialog {
   name: string;
@@ -22,9 +20,9 @@ export interface orgDataDialog {
 }
 
 @Component({
-  selector: 'add-organizations-dialog',
-  templateUrl: './organizations.component.html',
-  styleUrls: ['./organizations.component.scss']
+  selector: 'organizations',
+  templateUrl: 'organizations.component.html',
+  styleUrls: ['organizations.component.scss']
 })
 
 @Injectable()
@@ -61,21 +59,9 @@ export class OrganizationsComponent
 
   ngOnInit(): void {
   }
-//}
-
-  //@Component({
-   // selector: 'add-organizations-dialog',
-    //templateUrl: 'add-organizations-dialog.component.html',
-    //styleUrls: ['add-organizations-dialog.component.scss']
-  //})
-  //export class AddOrganizationsDialog implements OnInIt {
-    //name: string;
-    //description: string;
-    //link: string;
-    //image: string;
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddOrganizationsDialogComponent, {
+    const dialogRef = this.dialog.open(AddOrganizationsDialog, {
       width: '50vw',
       height: '38vw',
       data: {name: this.name, description: this.description, link: this.link, image: this.image}
@@ -83,6 +69,25 @@ export class OrganizationsComponent
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.name = result.name;
+      this.description = result.description;
+      this.link = result.link;
+      this.image = result.image;
+      console.log(result);
    });
+  }
 }
+
+@Component({
+  selector: 'add-organizations-dialog',
+  templateUrl: 'add-organizations-dialog.html',
+  styleUrls: ['add-organizations-dialog.scss']
+})
+export class AddOrganizationsDialog {
+  constructor(public dialogRef: MatDialogRef<AddOrganizationsDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: orgDataDialog) {}
+    
+    onNoClick(): void {
+      this.dialogRef.close(this.data);
+    }
 }

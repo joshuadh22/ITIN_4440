@@ -25,6 +25,7 @@ export class SignUp implements OnInit {
 
   myForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  agree: boolean;
 
   constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<SignUp>, private formBuilder: FormBuilder) {
     this.myForm = this.formBuilder.group({

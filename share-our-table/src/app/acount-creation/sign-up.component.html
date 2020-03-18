@@ -1,0 +1,42 @@
+<button class="closeButton" mat-icon-button>
+    <mat-icon (click)="signUpClose()">close</mat-icon>
+</button>
+
+<h1>Create Account</h1>
+
+<a>
+    <img src="assets/sotOrange.jpg">
+</a>
+
+<form class="form" [formGroup]="myForm">
+    <p>Enter your email</p>
+    <mat-form-field appearance="outline">
+        <mat-label for="email" class="abel">Email address</mat-label>
+        <input matInput type="text" type="email" name="email" id="email" class="input-field">
+    </mat-form-field>
+
+
+    <p>Create a password</p>
+ 
+    <mat-form-field appearance="outline">
+        <mat-label for="password" class="label">Password</mat-label>
+        <input matInput type="password" name="password" id="password" class="input-field" formControlName="password">
+    </mat-form-field>
+
+    <p>Confirm a password</p>
+
+    <mat-form-field appearance="outline">
+        <mat-label for="password" class="label">Confirm password</mat-label>
+        <input matInput type="password" name="password" id="password" class="input-field" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="myForm.hasError('notSame')">
+            Passwords do not match
+        </mat-error>  
+    </mat-form-field>
+
+</form>
+
+<div class="checkButton">
+    <mat-checkbox [(ngModel)]="agree">I agree to the Share Our Table Terms of Service and Privacy Policy</mat-checkbox>
+    <button [disabled]="!agree" (click)="openInfoForm()" class="continueButton" style="float: right;" mat-raised-button color="primary">Continue</button>
+</div>
+

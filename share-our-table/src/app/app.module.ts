@@ -62,6 +62,11 @@ import { ConfirmDialogComponent } from './users/confirm-dialog/confirm-dialog.co
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AboutComponent } from './about/about.component';
 
+import { SignUp } from './acount-creation/sign-up.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { InfoForm } from './acount-creation/info-form/info-form.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +95,10 @@ import { AboutComponent } from './about/about.component';
     PublicComponent,
     PrivateComponent,
     ConfirmDialogComponent,
-    AboutComponent
+    AboutComponent,
+
+    SignUp,
+    InfoForm
   ],
   imports: [
     BrowserModule,
@@ -126,9 +134,10 @@ import { AboutComponent } from './about/about.component';
     MatMenuModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
-  bootstrap: [AppComponent, PublicDirectoryData, PrivateDirectoryData]
+  bootstrap: [AppComponent, PublicDirectoryData, PrivateDirectoryData, SignUp]
 })
 export class AppModule { }

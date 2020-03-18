@@ -1,0 +1,46 @@
+<h1>Create Account</h1>
+
+<a>
+    <img src="assets/sotOrange.jpg">
+</a>
+
+<div class="form">
+    <div>
+        <p>Enter your first name</p>
+        <form class="c-input-field">
+            <mat-form-field appearance="outline">
+                <mat-label for="first_name" class="label">First name</mat-label>
+                <input type="text" name="first_name" id="first_name" class="input-field" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div>
+        <p>Enter your last name</p>
+        <form class="input-field">
+            <mat-form-field appearance="outline">
+                <mat-label for="las_name" class="label">Last name</mat-label>
+                <input type="text" name="last_name" id="last_name" class="input-field" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <form>
+        <h4>Choose your organization (optional)</h4>
+        <mat-form-field>
+          <mat-label>Organization</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="name">
+            <mat-option>
+                -- I'm not a member of any organization --
+            </mat-option>
+            <mat-option *ngFor="let organization of organizations | async" [value]="organization.name">
+              {{organization.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </form>
+
+    <button class="uploadButton" style="float: right;" mat-raised-button color="primary">Submit</button>
+    <button (click)="infoFormClose()" class="folderButton" style="float: right;" mat-raised-button color="white">Cancel</button>
+
+</div>

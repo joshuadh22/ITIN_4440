@@ -1,11 +1,11 @@
-import { Component, OnInit, Injectable, Inject } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
-import { File } from '../../File';
+import { File } from '../../file';
 
 export interface orgDataDialog {
   name: string;

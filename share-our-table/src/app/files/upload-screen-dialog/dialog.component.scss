@@ -4,6 +4,23 @@ h2{
 input{
     margin-left: 50px;
 }
+
+p{
+    line-height: 0.5;
+}
+.file-size{
+    margin-left: 52px;
+    color: gray;
+    padding-top: 15px;
+    font-size: 13px;
+}
+
+.file-type{
+    margin-left: 52px;
+    color: gray;
+    font-size: 13px;
+}
+
 .description{
     display: block;
     width: 70%;

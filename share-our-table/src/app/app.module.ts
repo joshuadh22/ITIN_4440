@@ -65,7 +65,10 @@ import { AboutComponent } from './about/about.component';
 import { SignUp } from './acount-creation/sign-up.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { InfoForm } from './acount-creation/info-form/info-form.component';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { DateDialogComponent } from './calendar/date-dialog/date-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -98,7 +101,8 @@ import { InfoForm } from './acount-creation/info-form/info-form.component';
     AboutComponent,
 
     SignUp,
-    InfoForm
+    InfoForm,
+    DateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -135,7 +139,10 @@ import { InfoForm } from './acount-creation/info-form/info-form.component';
     MatSliderModule,
     MatSlideToggleModule,
     MatPaginatorModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FullCalendarModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent, PublicDirectoryData, PrivateDirectoryData, SignUp]

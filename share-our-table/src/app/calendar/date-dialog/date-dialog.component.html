@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Details</h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field class="full" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Add title" [(ngModel)]="data.title">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full" appearance="outline">
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Add location" [(ngModel)]="data.location">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="date" appearance="outline">
+            <mat-label>Start date</mat-label>
+            <input matInput [matDatepicker]="startDate" [(ngModel)]="data.startDate">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="time" appearance="outline">
+            <mat-label>Start time</mat-label>
+            <input matInput type="time" [disabled]=allDay [(ngModel)]="data.startTime">
+        </mat-form-field>
+        <mat-checkbox id="check" [(ngModel)]="allDay" [(ngModel)]="data.allDay">All day</mat-checkbox>
+    </p>
+    <p>
+        <mat-form-field class="date" appearance="outline">
+            <mat-label>End date</mat-label>
+            <input matInput [matDatepicker]="endDate" [(ngModel)]="data.endDate">
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="time" appearance="outline">
+            <mat-label>End time</mat-label>
+            <input matInput type="time" [disabled]=allDay [(ngModel)]="data.endTime">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="data.description"></textarea>
+        </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">CANCEL</button>
+    <button mat-raised-button [mat-dialog-close]="data" color="primary">SAVE</button>
+</div>

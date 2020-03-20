@@ -55,12 +55,14 @@ import { PrivateComponent } from './files/private/private.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
+import { LoginComponent } from './login/login.component';
 
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './users/confirm-dialog/confirm-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AboutComponent } from './about/about.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { SignUp } from './acount-creation/sign-up.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -84,6 +86,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     UsersComponent,
     OrganizationComponent,
     UpcomingMeetingsComponent,
+    LoginComponent,
+    AdminComponent,
     FeedComponent,
     PublicTreeComponent,
     PrivateTreeComponent,

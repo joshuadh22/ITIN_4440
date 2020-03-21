@@ -16,6 +16,27 @@ export class DateDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DateDialogData) { }
 
   ngOnInit(): void {
+    this.data.title = '';
+    this.data.allDay = false;
+    this.data.endDate = '';
+    this.data.endTime = '';
+    this.data.startDate = '';
+    this.data.startTime = '';
+  }
+
+  allDayFunc() {
+    this.data.startTime = '00:00';
+    this.data.endTime = '00:00';
+    this.data.endDate = this.data.startDate;
+  }
+
+  save() {
+    if (this.data.allDay)
+    {
+      this.data.startTime = '00:00';
+      this.data.endTime = '00:00';
+      this.data.endDate = this.data.startDate;
+    }
   }
 
   onNoClick(): void {

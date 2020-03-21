@@ -3,5 +3,5 @@
  [buttonText]="{dayGridMonth: 'month', listDay: 'list day', listWeek: 'list week', listMonth: 'list month'}"
  [customButtons]="options.customButtons"
  [plugins]="calendarPlugins" [weekends]="calendarWeekends" [events]="calendarEvents"
-        (dateClick)="handleDateClick($event)"></full-calendar>
+ (eventClick)="eventClick($event)"></full-calendar>
 </div>

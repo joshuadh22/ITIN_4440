@@ -10,13 +10,13 @@ import { DateDialogComponent } from './date-dialog/date-dialog.component';
 
 export interface DateDialogData {
   title: string;
-  location: string;
+  // location: string;
   startDate: string;
   startTime: string;
   endDate: string;
   endTime: string;
   allDay: boolean;
-  description: string;
+  // description: string;
 }
 
 @Component({
@@ -27,13 +27,14 @@ export interface DateDialogData {
 export class CalendarComponent implements OnInit {
   options: any;
   title: string;
-  location: string;
   startDate: string;
   startTime: string;
   endDate: string;
   endTime: string;
   allDay: boolean;
-  description: string;
+  start: string;
+  end: string;
+  eventObj:any;
 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
   
@@ -65,33 +66,34 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-
-  handleDateClick(arg) {
-    if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-      this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
-        title: 'New Event',
-        start: arg.date,
-        allDay: arg.allDay
-      })
-    }
+  eventClick(model)
+  {
+    this.eventObj = model.event;
+    console.log(this.eventObj.title, this.eventObj.start,this.eventObj.end);
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open
     (DateDialogComponent, {
       width: '500px',
-      data: {title: this.title, location: this.location, startDate: this.startDate, startTime: this.startTime, endDate: this.endDate, endTime: this.endTime, allDay: this.allDay, description: this.description}
+      data: {title: this.title, startDate: this.startDate, startTime: this.startTime, endDate: this.endDate, endTime: this.endTime, allDay: this.allDay}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       this.title = result.title;
-      this.location = result.location;
       this.startDate = result.startDate;
       this.startTime = result.startTime;
       this.endDate = result.endDate;
       this.endTime = result.endTime;
       this.allDay = result.allDay;
-      this.description = result.description;
+      this.start = this.startDate + 'T' + this.startTime + ':00';
+      this.end = this.endDate + 'T' + this.endTime + ':00';
+      this.calendarEvents = this.calendarEvents.concat({
+        title: this.title,
+        start: this.start,
+        end: this.end,
+        allDay: this.allDay
+      })
     });
   }
 }

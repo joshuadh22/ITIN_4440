@@ -1,35 +1,35 @@
 <mat-drawer-container class="navigation-rail-page" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
     <mat-nav-list>
-      <mat-list-item class="spacer" routerLink="home">
+      <mat-list-item class="spacer" routerLink="home" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>home</mat-icon>
         <h4 mat-line>Home</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="posts">
+      <mat-list-item class="spacer" routerLink="posts" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>post_add</mat-icon>
         <h4 mat-line>Posts</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="files">
+      <mat-list-item class="spacer" routerLink="files" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>folder</mat-icon>
         <h4 mat-line>Files</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="organizations">
+      <mat-list-item class="spacer" routerLink="organizations" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>group_work</mat-icon>
         <h4 mat-line>Organizations</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="calendar">
+      <mat-list-item class="spacer" routerLink="calendar" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>calendar_today</mat-icon>
         <h4 mat-line>Calendar</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="users">
+      <mat-list-item class="spacer" routerLink="users" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>person</mat-icon>
         <h4 mat-line>Users</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="notifications">
+      <mat-list-item class="spacer" routerLink="notifications" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>notifications</mat-icon>
         <h4 mat-line>Notifications</h4>
       </mat-list-item>
-      <mat-list-item class="spacer" routerLink="about">
+      <mat-list-item class="spacer" routerLink="about" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>group</mat-icon>
         <h4 mat-line>About us</h4>
       </mat-list-item>

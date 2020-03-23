@@ -28,6 +28,10 @@ img {
         font-size: 12px;
         font-weight: bold;
         line-height: 0;
+        .pwRequirement{
+            font-weight: lighter;
+            color: gray;
+        }
     }
     mat-form-field{
         width: 100%;

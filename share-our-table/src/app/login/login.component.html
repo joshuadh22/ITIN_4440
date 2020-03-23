@@ -1,5 +1,47 @@
 <button class="closeButton" mat-icon-button>
-    <mat-icon (click)="signUpClose()">close</mat-icon>
+  <mat-icon (click)="signUpClose()">close</mat-icon>
+</button>
+
+<!-- <h1 style="text-align:center">
+  </h1>
+  <div class="login">
+    <h2 class="login-header">Log in</h2> -->
+    <h1>Login</h1>
+
+<a>
+    <img src="assets/sotOrange.jpg">
+</a>
+   
+  <form [formGroup]="loginForm" class="form" (ngSubmit)="login()">
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">Email Address
+        <mat-form-field appearance="outline">
+          <mat-label for="email" class="abel">Email address</mat-label>
+          <input type="email" placeholder="Email" formControlName="email">
+      </mat-form-field>
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+        <div *ngIf="formControls.email.errors.required">Email is required</div>
+      </div>
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">Password
+      <mat-form-field appearance="outline">
+        <input type="password" placeholder="Password" formControlName="password">
+      </mat-form-field>
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required">Password is required</div>
+      </div>
+  
+      <p>
+        <input type="submit" value="Log in" style="float:right;" mat-raised-button color="primary">
+      </p>
+    </form>
+  <!-- </div> -->
+<!-- <button class="closeButton" mat-icon-button>
+<mat-icon (click)="signUpClose()">close</mat-icon>
 </button>
 
 <h1>Create Account</h1>
@@ -8,7 +50,7 @@
     <img src="assets/sotOrange.jpg">
 </a>
 
-<form class="form" [formGroup]="myForm">
+<form class="loginform" [formGroup]="loginForm">
     <p>Enter your email</p>
     <mat-form-field appearance="outline">
         <mat-label for="email" class="abel">Email address</mat-label>
@@ -40,5 +82,4 @@
 <div class="checkButton">
     <mat-checkbox [(ngModel)]="agree">I agree to the Share Our Table Terms of Service and Privacy Policy</mat-checkbox>
     <button [disabled]="!agree" (click)="openInfoForm()" class="continueButton" style="float: right;" mat-raised-button color="primary">Continue</button>
-</div>
-
+</div> -->

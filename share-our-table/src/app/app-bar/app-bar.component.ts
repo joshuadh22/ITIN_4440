@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { SignUp } from '../acount-creation/sign-up.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-app-bar',
@@ -19,6 +20,13 @@ export class AppBarComponent implements OnInit {
     let dialogRef = this.dialog.open(SignUp, {
       width: '50vw',
       height: '43vw',
+    });
+  }
+
+  openLogin(): void {
+    let dialogRef = this.dialog.open(LoginComponent, {
+      width: '50vw',
+      height: '43vw',    
     });
   }
 }

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Details</h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field class="full" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Add title" required [(ngModel)]="data.title">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="date" appearance="outline">
+            <mat-label>Start date</mat-label>
+            <input matInput type="date" required [(ngModel)]="data.startDate">
+        </mat-form-field>
+        <mat-form-field class="time" appearance="outline">
+            <mat-label>Start time</mat-label>
+            <input matInput type="time" required [disabled]=data.allDay [(ngModel)]="data.startTime">
+        </mat-form-field>
+        <mat-checkbox id="check" [(ngModel)]="data.allDay" (click)="allDayFunc()">All day</mat-checkbox>
+    </p>
+    <p>
+        <mat-form-field class="date" appearance="outline">
+            <mat-label>End date</mat-label>
+            <input matInput type="date" required [(ngModel)]="data.endDate">
+        </mat-form-field>
+        <mat-form-field class="time" appearance="outline">
+            <mat-label>End time</mat-label>
+            <input matInput type="time" required [disabled]=data.allDay [(ngModel)]="data.endTime">
+        </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">CANCEL</button>
+    <button mat-raised-button [mat-dialog-close]="data" color="primary" (click)="save()">SAVE</button>
+</div>

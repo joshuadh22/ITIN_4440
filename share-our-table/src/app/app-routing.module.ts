@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
 import { FilesComponent } from './files/files.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './auth.guard';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
@@ -21,12 +24,16 @@ const routes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'about', component: AboutComponent },
 
+  { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+
   { path: 'organizations', component: OrganizationsComponent },
   { path: 'organizations/:name', component: OrganizationComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

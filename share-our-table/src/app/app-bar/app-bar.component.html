@@ -4,10 +4,10 @@
       <img src="assets/sotWhite1.png">
     </a>
     <span class="example-spacer"></span>
-    <button mat-icon-button>
+    <button *ngif="logIn" mat-icon-button>
       <mat-icon (click)="openLogin()">account_circle</mat-icon>
     </button>  
-    <button mat-icon-button>
+    <button *ngif="loging" mat-icon-button>
       <mat-icon (click)="openSignUp()">account_circle</mat-icon>
     </button>
     <button mat-icon-button>

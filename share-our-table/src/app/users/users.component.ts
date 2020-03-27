@@ -6,6 +6,13 @@ import { MatDialog } from '@angular/material/dialog';
 import {ConfirmDialogModel, ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 import {MatPaginator} from '@angular/material/paginator';
 
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+
+interface testAuth
+{
+  userType: string,
+}
+
 export interface Users {
   userName: string;
   organization: string;
@@ -37,7 +44,10 @@ export class UsersComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private afs: AngularFirestore) 
+  { 
+    this.afs.doc<testAuth>('users/testAuth').valueChanges().subscribe(complete => this.setDel(complete));
+  }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
@@ -95,6 +105,19 @@ export class UsersComponent implements OnInit {
     const dialogData = new ConfirmDialogModel("Confirm Action", message);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, { maxWidth: "500px", data: dialogData});
     dialogRef.afterClosed().subscribe(dialogResult => {this.result = dialogResult;});
+  }
+
+  delTab: Boolean;
+  setDel(user: testAuth)
+  {
+    if (user.userType == 'exec')
+    {
+      this.delTab = true;
+    }
+    else
+    {
+      this.delTab = false;
+    }
   }
 
 }

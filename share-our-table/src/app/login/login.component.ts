@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmitted  =  false;
+  hide = true;
   
   constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<LoginComponent>, private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 

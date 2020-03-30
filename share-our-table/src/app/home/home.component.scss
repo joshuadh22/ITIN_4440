@@ -1,7 +1,6 @@
 .header-background {
     overflow: hidden;
     display: block;
-    background-color: #f2902d;
 }
 
 .header-section {
@@ -27,9 +26,8 @@ h1 {
 }
 
 .subhead {
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(0, 0, 0, 0.87)
+    font-size: 24px;
+    color: rgb(247, 149, 33);
 }
 
 .content {
@@ -44,4 +42,23 @@ h1 {
 .contentHeaders {
     text-align: center;
     margin-top: 24px;
+}
+
+#logo {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    margin: 24px;
+}
+
+#footer {
+    display: flex;
+}
+
+#footerImg {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    float: right;
+    margin: auto;
 }

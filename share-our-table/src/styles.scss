@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap');
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
 @import '~@fullcalendar/timegrid/main.css';
@@ -9,4 +10,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .is-active {
     background: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    font-family: 'Libre Franklin', Roboto, 'Helvetica Neue', sans-serif;
 }

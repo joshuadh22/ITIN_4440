@@ -20,6 +20,8 @@ export class UploadComponent implements OnInit {
   snapshot: Observable<any>;
   downloadURL;
 
+  
+
   constructor(private storage: AngularFireStorage, private afs: AngularFirestore) {}
 
   ngOnInit() {
@@ -31,6 +33,27 @@ export class UploadComponent implements OnInit {
    * If user does not define metadata its set to "default".
    */
   startUpload() {
+    const ALLOWED_TYPES = ["docx", "pptx", "xlsx", "pdf"];
+    let allow = false;
+    let fileType = this.file.type.split('/')[1];
+
+    for (let type in ALLOWED_TYPES) {
+      if (fileType.match(ALLOWED_TYPES[type])) {
+        allow = true;
+        break;
+      }
+    }  // Type checking
+
+    if (this.file.size > 50000000 ) {
+      alert('file size too large');
+      return false;
+    }  // Size checking
+
+    if (allow == false) {
+      alert("file type not allowed");
+      return false;
+    }  // type result check
+   
     const path = `${this.folder}/${this.file.name}`;
     const ref = this.storage.ref(path);
     this.task = this.storage.upload(path, this.file, { 

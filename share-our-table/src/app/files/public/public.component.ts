@@ -2,10 +2,9 @@ import { Component, Injectable } from '@angular/core';
 
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireUploadTask, } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
-
-import { AngularFireStorage, AngularFireUploadTask, } from '@angular/fire/storage';
 
 import { File } from '../../file';
 
@@ -45,24 +44,16 @@ export class PublicComponent {
   }
 
   delete(file: File) {
-    alert("delete public hit");
-
-
-
     this.afs.collection("publicFiles").doc(file.title).delete().then(function () {
       console.log("Document successfully deleted!");
     }).catch(function (error) {
       console.error("Error removing document: ", error);
     });
 
-    // Create a reference to the file to delete
-    // var desertRef = this.storage.rechild('images/desert.jpg');
     var ref = this.storage.ref("/Public");
     ref.child(file.title).delete().then(function () {
     }).catch(function (error) {
-      // Uh-oh, an error occurred!
+      alert("delete error");
     });
-
   }
-
 }

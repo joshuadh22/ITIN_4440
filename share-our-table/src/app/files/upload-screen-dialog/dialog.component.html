@@ -8,7 +8,13 @@
 
 <form>
     <h2>File: </h2>
-    <input class="file-input" type="file" (change)="setUpload($event.target.files)" multiple>
+    <input 
+    class="file-input" 
+    type="file" 
+    (change)="setUpload($event.target.files)" 
+    multiple
+    accept=".docx,.pptx,.xlsx,.pdf"
+    >
 
     <p class="file-size">Maximum upload file size: 50MB.</p>
     <p class="file-type">Acceptable file types: docx, pptx, xlsx, pdf.</p>

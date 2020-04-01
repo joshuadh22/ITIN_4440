@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable, Inject } from '@angular/core';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireUploadTask, } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
@@ -30,7 +31,7 @@ export class PrivateComponent
   private fileCollection: AngularFirestoreCollection<File>;
   files: Observable<File[]>;
 
-  constructor(private afs: AngularFirestore,public dialog: MatDialog)
+  constructor(private storage: AngularFireStorage, private afs: AngularFirestore,public dialog: MatDialog)
   {
     this.fileCollection = afs.collection<File>('privateFiles');
     this.files = this.fileCollection.valueChanges();
@@ -40,12 +41,16 @@ export class PrivateComponent
   }
 
   delete(file: File) {
-    alert("delete public hit");
     this.afs.collection("privateFiles").doc(file.title).delete().then(function () {
       console.log("Document successfully deleted!");
     }).catch(function (error) {
       console.error("Error removing document: ", error);
     });
-  }
 
+    var ref = this.storage.ref("/Public");
+    ref.child(file.title).delete().then(function () {
+    }).catch(function (error) {
+      alert("delete error");
+    });
+  }
 }

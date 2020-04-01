@@ -36,7 +36,7 @@ export class PublicComponent {
   snapshot: Observable<any>;
   downloadURL;
 
-  constructor(private afs: AngularFirestore, public dialog: MatDialog) {
+  constructor(private storage: AngularFireStorage, private afs: AngularFirestore, public dialog: MatDialog) {
     this.fileCollection = afs.collection<File>('publicFiles');
     this.files = this.fileCollection.valueChanges();
   }
@@ -46,10 +46,21 @@ export class PublicComponent {
 
   delete(file: File) {
     alert("delete public hit");
+
+
+
     this.afs.collection("publicFiles").doc(file.title).delete().then(function () {
       console.log("Document successfully deleted!");
     }).catch(function (error) {
       console.error("Error removing document: ", error);
+    });
+
+    // Create a reference to the file to delete
+    // var desertRef = this.storage.rechild('images/desert.jpg');
+    var ref = this.storage.ref("/Public");
+    ref.child(file.title).delete().then(function () {
+    }).catch(function (error) {
+      // Uh-oh, an error occurred!
     });
 
   }

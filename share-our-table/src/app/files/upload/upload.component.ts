@@ -31,7 +31,7 @@ export class UploadComponent implements OnInit {
    * If user does not define metadata its set to "default".
    */
   startUpload() {
-    const path = `${this.folder}/${Date.now()}_${this.file.name}`;
+    const path = `${this.folder}/${this.file.name}`;
     const ref = this.storage.ref(path);
     this.task = this.storage.upload(path, this.file, { 
       customMetadata: { 

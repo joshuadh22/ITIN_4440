@@ -41,7 +41,7 @@ export class PrivateComponent
 
   delete(file: File) {
     alert("delete public hit");
-    this.afs.collection("publicFiles").doc(file.title).delete().then(function () {
+    this.afs.collection("privateFiles").doc(file.title).delete().then(function () {
       console.log("Document successfully deleted!");
     }).catch(function (error) {
       console.error("Error removing document: ", error);

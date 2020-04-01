@@ -17,6 +17,7 @@
 <mat-list >
   <mat-list-item *ngFor="let file of files | async">
     {{file.title}}&emsp;{{file.description}}&emsp;<a href="{{file.downloadURL}}">Download</a>
+    <button (click)="delete(file)"> delete </button>  <!-- TODO add ngif for exec user -->
   </mat-list-item>
 </mat-list>
 

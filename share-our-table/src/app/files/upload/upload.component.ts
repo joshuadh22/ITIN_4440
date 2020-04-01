@@ -45,7 +45,7 @@ export class UploadComponent implements OnInit {
       tap(console.log),
       finalize(async () => {
         this.downloadURL = await ref.getDownloadURL().toPromise();
-        this.afs.collection(this.folder.toLowerCase().toString() + 'Files').add({
+        this.afs.collection(this.folder.toLowerCase().toString() + 'Files').doc(this.file.name).set({
           description: this.description.toString(), 
           downloadURL: this.downloadURL.toString(), 
           title: this.file.name.toString()

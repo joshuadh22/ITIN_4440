@@ -5,6 +5,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
+import { AngularFireStorage, AngularFireUploadTask, } from '@angular/fire/storage';
+
 import { File } from '../../file';
 
 export interface orgDataDialog {
@@ -21,8 +23,7 @@ export interface orgDataDialog {
 })
 
 @Injectable()
-export class PublicComponent
-{
+export class PublicComponent {
   name: string;
   description: string;
   link: string;
@@ -30,13 +31,27 @@ export class PublicComponent
   private fileCollection: AngularFirestoreCollection<File>;
   files: Observable<File[]>;
 
-  constructor(private afs: AngularFirestore,public dialog: MatDialog)
-  {
+  task: AngularFireUploadTask;
+  percentage: Observable<number>;
+  snapshot: Observable<any>;
+  downloadURL;
+
+  constructor(private afs: AngularFirestore, public dialog: MatDialog) {
     this.fileCollection = afs.collection<File>('publicFiles');
     this.files = this.fileCollection.valueChanges();
   }
- 
-  ngOnInit(): void { 
+
+  ngOnInit(): void {
+  }
+
+  delete(file: File) {
+    alert("delete public hit");
+    this.afs.collection("publicFiles").doc(file.title).delete().then(function () {
+      console.log("Document successfully deleted!");
+    }).catch(function (error) {
+      console.error("Error removing document: ", error);
+    });
+
   }
 
 }
